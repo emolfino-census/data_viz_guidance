@@ -89,4 +89,4 @@ This example demonstrates the following practices well:
 - [ ] Existing accessibility, scaling, and axes guidance has been followed.
 - [ ] Chart-specific limitations and caveats are explained.
 - [ ] Code examples have been executed and verified.
-- [ ] The visualization has undergone the appropriate review.# Grids and Gridlines
+- [ ] The visualization has undergone the appropriate review.
