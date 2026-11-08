@@ -5,7 +5,8 @@
 # Universe: Workers 16 years and over
 # Retrieved: 2026-11-08 from the published data.census.gov table ACSDT1Y2025.B08301
 # Published table: https://data.census.gov/table/ACSDT1Y2025.B08301?g=040XX00US24
-# The Census data API required a key, so these published estimates were saved here.
+# Fallback when CENSUS_API_KEY is not set. Do not put an API key in this file.
+# With a key set, make_md_commute_chart.py reads this same table from the Census Data API.
 # Rows with the same chart_group are added together for the chart.
 # The total row is the published total. Do not add it to the groups.
 # More detailed lines, such as drove alone or bus, are inside these rows on the published table.

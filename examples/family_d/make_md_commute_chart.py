@@ -1,27 +1,32 @@
 #!/usr/bin/env python3
 """Draw a part-to-whole chart of how Maryland workers got to work.
 
-The numbers are published Census estimates. They are saved in
-md_b08301_means_of_transportation.csv, next to this program, because the
-Census data API asks for a key.
-
-Source: U.S. Census Bureau
-Survey: American Community Survey, 2025 1-year estimates
-Table: B08301, Means of Transportation to Work
-Place: Maryland (FIPS 24)
-Who is counted: workers 16 years and over
+The numbers are published Census estimates for American Community Survey
+2025 1-year table B08301, Maryland (FIPS 24), workers 16 years and over.
 Published table: https://data.census.gov/table/ACSDT1Y2025.B08301?g=040XX00US24
-Saved from data.census.gov on 2026-11-08
 
-Run from the project folder:
+To download the live estimates, set a Census Data API key in the environment.
+Do not paste the key into this file:
 
+    export CENSUS_API_KEY=your_key_here
     python3 examples/family_d/make_md_commute_chart.py
+
+If CENSUS_API_KEY is not set, the program uses the saved estimates in
+md_b08301_means_of_transportation.csv. Those saved numbers were copied from
+the published table on 2026-11-08. The live API values for the total,
+car/truck/van, public transportation, and worked from home matched this
+file exactly.
 """
 
 from __future__ import annotations
 
 import csv
+import json
 import math
+import os
+import urllib.error
+import urllib.parse
+import urllib.request
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -29,6 +34,21 @@ import matplotlib.pyplot as plt
 HERE = Path(__file__).resolve().parent
 CSV_PATH = HERE / "md_b08301_means_of_transportation.csv"
 OUT_PATH = HERE.parents[1] / "assets" / "family-d" / "md-means-of-transportation.png"
+API_URL = "https://api.census.gov/data/2025/acs/acs1"
+STATE_FIPS = "24"
+
+# variable, label, chart group. The total is not given a group.
+PUBLISHED_LINES = (
+    ("B08301_001", "Total", ""),
+    ("B08301_002", "Car, truck, or van", "car"),
+    ("B08301_021", "Worked from home", "home"),
+    ("B08301_010", "Public transportation", "transit"),
+    ("B08301_019", "Walked", "other"),
+    ("B08301_016", "Taxi or ride-hailing services", "other"),
+    ("B08301_020", "Other means", "other"),
+    ("B08301_018", "Bicycle", "other"),
+    ("B08301_017", "Motorcycle", "other"),
+)
 
 # These colors stay distinct for common kinds of color blindness.
 # Each fill has at least a 3 to 1 contrast with the white page, and the
@@ -67,6 +87,103 @@ def read_published_rows(path: Path):
     return list(csv.DictReader(data_lines))
 
 
+def rows_from_api_payload(raw: str):
+    """Turn a Census Data API JSON table into the same rows as the CSV."""
+    try:
+        table = json.loads(raw)
+    except json.JSONDecodeError:
+        raise SystemExit(
+            "The Census Data API did not return a data table. "
+            "Check that CENSUS_API_KEY is valid."
+        )
+    if (
+        not isinstance(table, list)
+        or len(table) < 2
+        or not isinstance(table[0], list)
+        or not isinstance(table[1], list)
+    ):
+        raise SystemExit(
+            "The Census Data API returned an unexpected table. "
+            "Check that CENSUS_API_KEY is valid."
+        )
+
+    by_name = dict(zip(table[0], table[1]))
+    if by_name.get("state") != STATE_FIPS:
+        raise SystemExit(
+            "The Census Data API response did not include Maryland. "
+            "Check that CENSUS_API_KEY is valid."
+        )
+
+    rows = []
+    for code, label, group in PUBLISHED_LINES:
+        estimate_name = f"{code}E"
+        margin_name = f"{code}M"
+        if estimate_name not in by_name or margin_name not in by_name:
+            raise SystemExit(f"The Census Data API response is missing {code}.")
+        try:
+            estimate = str(int(by_name[estimate_name]))
+            margin = str(int(by_name[margin_name]))
+        except (TypeError, ValueError):
+            raise SystemExit(
+                f"The Census Data API returned a non-numeric value for {code}."
+            )
+        rows.append(
+            {
+                "variable": code,
+                "label": label,
+                "estimate": estimate,
+                "margin_of_error": margin,
+                "chart_group": group,
+            }
+        )
+    return rows
+
+
+def fetch_live_rows(api_key: str):
+    """Download B08301 for Maryland. The key is not printed or saved."""
+    fields = ["NAME"]
+    for code, _label, _group in PUBLISHED_LINES:
+        fields.extend((f"{code}E", f"{code}M"))
+    params = urllib.parse.urlencode(
+        {
+            "get": ",".join(fields),
+            "for": f"state:{STATE_FIPS}",
+            "key": api_key,
+        }
+    )
+    request = urllib.request.Request(
+        f"{API_URL}?{params}",
+        headers={"User-Agent": "data-viz-guidance family-d example"},
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=60) as response:
+            raw = response.read().decode("utf-8")
+    except urllib.error.HTTPError as error:
+        raise SystemExit(
+            f"The Census Data API returned status {error.code}. "
+            "Check that CENSUS_API_KEY is valid."
+        )
+    except urllib.error.URLError:
+        raise SystemExit(
+            "The Census Data API could not be reached. "
+            "Check your network connection."
+        )
+    return rows_from_api_payload(raw)
+
+
+def load_rows():
+    """Use the live API when a key is set, and the saved CSV otherwise."""
+    api_key = os.environ.get("CENSUS_API_KEY", "").strip()
+    if not api_key:
+        print("No CENSUS_API_KEY set. Using the saved CSV.")
+        return read_published_rows(CSV_PATH)
+    print(
+        "Using live 2025 ACS 1-year estimates for Maryland "
+        "from the Census Data API."
+    )
+    return fetch_live_rows(api_key)
+
+
 def build_slices(rows):
     """Turn the published rows into the four slices drawn on the chart."""
     total = None
@@ -88,7 +205,7 @@ def build_slices(rows):
         grouped[group]["squared_margins"] += margin ** 2
 
     if total is None:
-        raise SystemExit("The CSV is missing the published total, B08301_001.")
+        raise SystemExit("The estimates are missing the published total, B08301_001.")
 
     slices = []
     for key, values in grouped.items():
@@ -184,7 +301,7 @@ def draw_chart(total, slices, out_path: Path):
 
 
 def main():
-    total, slices = build_slices(read_published_rows(CSV_PATH))
+    total, slices = build_slices(load_rows())
     draw_chart(total, slices, OUT_PATH)
     print(f"Published total: {total:,} workers")
     for item in slices:
