@@ -133,8 +133,6 @@ Pie charts are familiar, but readers can find it difficult to compare wedge size
 
 ### How Maryland workers got to work, 2025
 
-## An accessible example
-
 This example is a part-to-whole chart. It uses four slices, because this page recommends staying near three or four. The smallest published ways of getting to work are added together in the last slice. The table under the chart lists each of those published numbers on its own.
 
 The picture description states the result. The caption names the chart. The source line starts with "Source: U.S. Census Bureau." The same numbers are in a table that opens from the keyboard.
