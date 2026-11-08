@@ -3,7 +3,7 @@ layout: default
 title: Treemap
 permalink: treemap.html
 tags: [Distribution, Comparison]
-description: "Short Description of Treemap"
+description: "A treemap shows parts of a whole as nested rectangles sized by value."
 ---
 
 # Treemap
