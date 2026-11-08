@@ -1,0 +1,21 @@
+# Source: U.S. Census Bureau
+# Survey: American Community Survey, 2025 1-year estimates
+# Table: B08301, Means of Transportation to Work
+# Geography: Maryland (state FIPS code 24)
+# Universe: Workers 16 years and over
+# Retrieved: 2026-11-08 from the published data.census.gov table ACSDT1Y2025.B08301
+# Published table: https://data.census.gov/table/ACSDT1Y2025.B08301?g=040XX00US24
+# The Census data API required a key, so these published estimates were saved here.
+# Rows with the same chart_group are added together for the chart.
+# The total row is the published total. Do not add it to the groups.
+# More detailed lines, such as drove alone or bus, are inside these rows on the published table.
+variable,label,estimate,margin_of_error,chart_group
+B08301_001,Total,3179937,21959,
+B08301_002,"Car, truck, or van",2429541,23333,car
+B08301_021,Worked from home,435692,12713,home
+B08301_010,Public transportation,174860,10198,transit
+B08301_019,Walked,63419,5896,other
+B08301_016,Taxi or ride-hailing services,32438,6036,other
+B08301_020,Other means,31032,4358,other
+B08301_018,Bicycle,8938,2054,other
+B08301_017,Motorcycle,4017,2056,other
