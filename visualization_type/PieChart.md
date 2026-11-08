@@ -93,6 +93,28 @@ The picture description states the result. The caption names the chart. The sour
    rows_2="Walked|63,419|±5,896|2.0%||Taxi or ride-hailing services|32,438|±6,036|1.0%||Other means|31,032|±4,358|1.0%||Bicycle|8,938|±2,054|0.3%||Motorcycle|4,017|±2,056|0.1%"
 %}
 
+### Ownership share of all businesses by sex, 2021
+
+This example is a set of small pies, one for each state, plus a larger pie for the United States. Each pie shows the share of all businesses in 2021 by the sex of the owners. The legend uses female, equally male and female, male, and unclassifiable. A pale slice means the estimate is suppressed. A count of businesses is printed beside each state.
+
+The original page did not list the number or margin of error for every slice. Those values show up when you point at a slice in the interactive chart, so they are not copied into a table here.
+
+{% include accessible-figure.html
+   id="ownership-sex-2021"
+   src="visualization_type/assets/PieChart2.png"
+   alt="Many small pie charts, one for each state, plus a larger pie for the United States, titled Ownership Share of All Businesses By Sex, 2021. Colors show businesses owned by women, owned equally by men and women, owned by men, or unclassifiable. A pale slice means the estimate is suppressed. A count of businesses is printed beside each state. The share for each color is not written on the picture."
+   caption="Ownership share of all businesses by sex, 2021. Each small pie is one state, and a larger pie shows the United States."
+   source_detail="Annual Business Survey (ABS) and Nonemployer Statistics by Demographics (NES-D), 2021."
+   source_url="https://www.census.gov/library/visualizations/interactive/ownership-share-of-businesses-by-demographics.html"
+%}
+
+The interactive chart is <a href="https://www.census.gov/library/visualizations/interactive/ownership-share-of-businesses-by-demographics.html">Ownership Share of All Businesses by Demographics on census.gov</a>.
+
+Take note of the following characteristics of these pie charts:
+
+* A legend is used to define all the wedges of the pie charts.
+* On hover of each wedge slice, the value represented by the wedge is displayed along with margins of error which helps to communicate the uncertainty with the estimates being displayed.
+
 ## Make this chart again
 
 The program below is saved at `examples/family_d/make_md_commute_chart.py`. It saves the picture used above. It needs Python 3 and the matplotlib package.
