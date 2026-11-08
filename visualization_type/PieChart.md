@@ -107,23 +107,24 @@ In addition to the guidance provided in this section, relevant guidance can also
 
 This example is a part-to-whole chart. It uses four slices, because this page recommends staying near three or four. The smallest published ways of getting to work are added together in the last slice. The table under the chart lists each of those published numbers on its own.
 
-The picture description states the result. The caption names the chart. The source line starts with "Source: U.S. Census Bureau." The same numbers are in a table that opens from the keyboard.
+The picture description states the result. The caption names the chart. The source line is “U.S. Census Bureau, 2020–2024 American Community Survey 5-Year Estimates, Table B08301.” The same numbers, including margins of error for the counts and the percents, are in a table that opens from the keyboard.
 
 {% include accessible-figure.html
    id="md-commute"
    src="assets/family-d/md-means-of-transportation.png"
-   alt="Pie chart of how workers in Maryland got to work in 2025. 76.4 percent used a car, truck, or van. 13.7 percent worked from home. 5.5 percent used public transportation. 4.4 percent walked, biked, used a taxi or ride-hailing service, rode a motorcycle, or used another means."
-   caption="How Maryland workers got to work in 2025. Each slice is a share of workers age 16 and over."
-   source_detail="American Community Survey, 2025 1-year estimates, table B08301, Maryland. Workers 16 years and over."
-   source_url="https://data.census.gov/table/ACSDT1Y2025.B08301?g=040XX00US24"
+   alt="Pie chart of how workers in Maryland got to work in 2020 to 2024. 72.4 percent used a car, truck, or van. 19.3 percent worked from home. 4.2 percent used public transportation. 4.0 percent walked, biked, used a taxi or ride-hailing service, rode a motorcycle, or used another means."
+   caption="How Maryland workers got to work, 2020–2024. Each slice is a share of workers age 16 and over."
+   source="U.S. Census Bureau, 2020–2024 American Community Survey 5-Year Estimates, Table B08301"
+   source_detail="Maryland. Workers 16 years and over."
+   source_url="https://data.census.gov/table/ACSDT5Y2024.B08301?g=040XX00US24"
    summary="Show the data table"
-   table_caption="Means of transportation to work, Maryland, 2025"
-   headers="Means of transportation|Workers|Margin of error|Percent of workers"
-   rows="Car, truck, or van|2,429,541|±23,333|76.4%||Worked from home|435,692|±12,713|13.7%||Public transportation|174,860|±10,198|5.5%||Walking, taxi or ride-hailing, bicycle, motorcycle, or other means|139,844|±9,931 (calculated)|4.4%||All workers|3,179,937|±21,959|100%"
-   note="The four modes add up to all workers. The last mode is the sum of five published estimates, which are listed in the next table. Its margin of error is calculated from those five published margins with the Census Bureau formula for a sum: the square root of the sum of the squared margins. Percents are rounded to one decimal place and add to 100.0. Estimates were saved from data.census.gov on November 8, 2026."
+   table_caption="Means of transportation to work, Maryland, 2020–2024"
+   headers="Means of transportation|Workers|Margin of error|Percent of workers|Margin of error for the percent"
+   rows="Car, truck, or van|2,265,958|±9,545|72.4%|±0.23||Worked from home|604,400|±7,547|19.3%|±0.24||Public transportation|131,271|±3,568|4.2%|±0.11||Walking, taxi or ride-hailing, bicycle, motorcycle, or other means|126,056|±3,650 (calculated)|4.0%|±0.12 (calculated)||All workers|3,127,685|±8,544|100%|"
+   note="The four modes add up to all workers. The last mode is the sum of five published estimates, listed in the next table. Its count margin of error is the Census Bureau formula for a sum: the square root of the sum of the squared margins. The percent margin of error is the Census Bureau formula for a proportion. Percents are rounded to one decimal place. Estimates were checked against the published 2024 ACS 5-year table on November 8, 2026."
    table_caption_2="Published estimates added together in the last slice"
-   headers_2="Means of transportation|Workers|Margin of error|Percent of workers"
-   rows_2="Walked|63,419|±5,896|2.0%||Taxi or ride-hailing services|32,438|±6,036|1.0%||Other means|31,032|±4,358|1.0%||Bicycle|8,938|±2,054|0.3%||Motorcycle|4,017|±2,056|0.1%"
+   headers_2="Means of transportation|Workers|Margin of error|Percent of workers|Margin of error for the percent"
+   rows_2="Walked|63,417|±2,622|2.0%|±0.08||Taxi or ride-hailing services|14,954|±1,317|0.5%|±0.04||Other means|37,130|±1,929|1.2%|±0.06||Bicycle|8,406|±910|0.3%|±0.03||Motorcycle|2,149|±408|0.1%|±0.01"
 %}
 
 ### Ownership share of all businesses by sex, 2021
@@ -575,14 +576,14 @@ Take note of the following characteristics of these pie charts:
 
 <a href="{{ '/examples/family_d/make_md_commute_chart.py' | relative_url }}">Download the Python script</a>. It saves the Maryland commute chart. It needs Python 3 and the matplotlib package.
 
-To download the live 2025 estimates, request a free Census Data API key at https://api.census.gov/data/key_signup.html and set it in your terminal. Leave the key out of the program, this page, and the saved table:
+To download the live 2020–2024 estimates, request a free Census Data API key at https://api.census.gov/data/key_signup.html and set it in your terminal. Leave the key out of the program, this page, and the saved table:
 
 ```
 export CENSUS_API_KEY=your_key_here
 python3 examples/family_d/make_md_commute_chart.py
 ```
 
-If `CENSUS_API_KEY` is not set, the program uses the saved file `examples/family_d/md_b08301_means_of_transportation.csv`. Those numbers were copied from the published table on November 8, 2026. The live 2025 values for Maryland match that file: 3,179,937 workers in total, 2,429,541 by car, truck, or van, 174,860 by public transportation, and 435,692 who worked from home.
+If `CENSUS_API_KEY` is not set, the program uses the saved file `examples/family_d/md_b08301_means_of_transportation.csv`. Those numbers are the published 2020–2024 ACS 5-year estimates for Maryland: 3,127,685 workers in total, 2,265,958 by car, truck, or van, 131,271 by public transportation, and 604,400 who worked from home.
 
 <details class="code-details">
 <summary><span class="code-details-icon" aria-hidden="true"></span>Show Python code for the commute chart</summary>
@@ -590,9 +591,11 @@ If `CENSUS_API_KEY` is not set, the program uses the saved file `examples/family
 #!/usr/bin/env python3
 """Draw a part-to-whole chart of how Maryland workers got to work.
 
-The numbers are published Census estimates for American Community Survey
-2025 1-year table B08301, Maryland (FIPS 24), workers 16 years and over.
-Published table: https://data.census.gov/table/ACSDT1Y2025.B08301?g=040XX00US24
+The numbers are published Census estimates for the 2020-2024 American
+Community Survey 5-year estimates, table B08301, Maryland (FIPS 24),
+workers 16 years and over.
+Published table: https://data.census.gov/table/ACSDT5Y2024.B08301?g=040XX00US24
+API: https://api.census.gov/data/2024/acs/acs5
 
 To download the live estimates, set a Census Data API key in the environment.
 Do not paste the key into this file:
@@ -602,9 +605,7 @@ Do not paste the key into this file:
 
 If CENSUS_API_KEY is not set, the program uses the saved estimates in
 md_b08301_means_of_transportation.csv. Those saved numbers were copied from
-the published table on 2026-11-08. The live API values for the total,
-car/truck/van, public transportation, and worked from home matched this
-file exactly.
+the published 2024 ACS 5-year table on 2026-11-08.
 """
 
 from __future__ import annotations
@@ -623,7 +624,7 @@ import matplotlib.pyplot as plt
 HERE = Path(__file__).resolve().parent
 CSV_PATH = HERE / "md_b08301_means_of_transportation.csv"
 OUT_PATH = HERE.parents[1] / "assets" / "family-d" / "md-means-of-transportation.png"
-API_URL = "https://api.census.gov/data/2025/acs/acs1"
+API_URL = "https://api.census.gov/data/2024/acs/acs5"
 STATE_FIPS = "24"
 
 # variable, label, chart group. The total is not given a group.
@@ -767,7 +768,7 @@ def load_rows():
         print("No CENSUS_API_KEY set. Using the saved CSV.")
         return read_published_rows(CSV_PATH)
     print(
-        "Using live 2025 ACS 1-year estimates for Maryland "
+        "Using live 2020-2024 ACS 5-year estimates for Maryland "
         "from the Census Data API."
     )
     return fetch_live_rows(api_key)
@@ -776,6 +777,7 @@ def load_rows():
 def build_slices(rows):
     """Turn the published rows into the four slices drawn on the chart."""
     total = None
+    total_margin = None
     grouped = {
         key: {"estimate": 0, "squared_margins": 0}
         for key in GROUP_LABELS
@@ -787,13 +789,14 @@ def build_slices(rows):
         group = row["chart_group"].strip()
         if row["variable"] == "B08301_001":
             total = estimate
+            total_margin = margin
             continue
         if group not in grouped:
             raise SystemExit(f"Unknown chart group '{group}' in {row['variable']}.")
         grouped[group]["estimate"] += estimate
         grouped[group]["squared_margins"] += margin ** 2
 
-    if total is None:
+    if total is None or total_margin is None:
         raise SystemExit("The estimates are missing the published total, B08301_001.")
 
     slices = []
@@ -803,13 +806,21 @@ def build_slices(rows):
         # For the combined slice, this is the Census formula for a sum:
         # the square root of the sum of the squared margins.
         margin = math.sqrt(values["squared_margins"])
+        share = estimate / total
+        # Census proportion margin of error. If the usual term under the
+        # square root is negative, the Census approximation adds the terms.
+        under_root = margin ** 2 - (share ** 2) * (total_margin ** 2)
+        if under_root < 0:
+            under_root = margin ** 2 + (share ** 2) * (total_margin ** 2)
+        percent_margin = 100.0 * math.sqrt(under_root) / total
         slices.append(
             {
                 "key": key,
                 "label": GROUP_LABELS[key],
                 "estimate": estimate,
                 "margin": margin,
-                "percent": 100.0 * estimate / total,
+                "percent": 100.0 * share,
+                "percent_margin": percent_margin,
                 "color": COLORS[key],
             }
         )
@@ -819,10 +830,10 @@ def build_slices(rows):
         raise SystemExit(
             f"The slices add to {added:,}, but the published total is {total:,}."
         )
-    return total, slices
+    return total, total_margin, slices
 
 
-def draw_chart(total, slices, out_path: Path):
+def draw_chart(total, total_margin, slices, out_path: Path):
     """Save a pie chart with labels in a legend, not color alone."""
     plt.rcParams["font.family"] = "DejaVu Sans"
 
@@ -839,7 +850,7 @@ def draw_chart(total, slices, out_path: Path):
     )
 
     legend_labels = [
-        f"{LEGEND_LABELS[item['key']]}\n{item['percent']:.1f}% of workers"
+        f"{LEGEND_LABELS[item['key']]}\n{item['percent']:.1f}% ± {item['percent_margin']:.2f}"
         for item in slices
     ]
     legend = ax.legend(
@@ -858,7 +869,7 @@ def draw_chart(total, slices, out_path: Path):
         text.set_color("#1b1b1b")
 
     ax.set_title(
-        "How Maryland workers got to work, 2025",
+        "How Maryland workers got to work, 2020–2024",
         loc="left",
         fontsize=18,
         color="#1b1b1b",
@@ -869,7 +880,8 @@ def draw_chart(total, slices, out_path: Path):
     fig.text(
         0.01,
         0.075,
-        f"Share of {total:,} workers age 16 and over. Percents are rounded to one decimal place.",
+        f"Share of {total:,} workers age 16 and over (±{total_margin:,.0f}). "
+        "Percents are rounded to one decimal place.",
         fontsize=11,
         color="#1b1b1b",
         ha="left",
@@ -877,7 +889,7 @@ def draw_chart(total, slices, out_path: Path):
     fig.text(
         0.01,
         0.03,
-        "Source: U.S. Census Bureau. American Community Survey, 2025 1-year estimates, table B08301.",
+        "U.S. Census Bureau, 2020–2024 American Community Survey 5-Year Estimates, Table B08301.",
         fontsize=11,
         color="#1b1b1b",
         ha="left",
@@ -890,13 +902,14 @@ def draw_chart(total, slices, out_path: Path):
 
 
 def main():
-    total, slices = build_slices(load_rows())
-    draw_chart(total, slices, OUT_PATH)
-    print(f"Published total: {total:,} workers")
+    total, total_margin, slices = build_slices(load_rows())
+    draw_chart(total, total_margin, slices, OUT_PATH)
+    print(f"Published total: {total:,} workers (±{total_margin:,.0f})")
     for item in slices:
         print(
             f"{item['label']}: {item['estimate']:,} "
-            f"(±{item['margin']:,.0f}), {item['percent']:.1f}%"
+            f"(±{item['margin']:,.0f}), {item['percent']:.1f}% "
+            f"(±{item['percent_margin']:.2f})"
         )
     print(f"Saved {OUT_PATH}")
 

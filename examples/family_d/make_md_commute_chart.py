@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Draw a part-to-whole chart of how Maryland workers got to work.
 
-The numbers are published Census estimates for American Community Survey
-2025 1-year table B08301, Maryland (FIPS 24), workers 16 years and over.
-Published table: https://data.census.gov/table/ACSDT1Y2025.B08301?g=040XX00US24
+The numbers are published Census estimates for the 2020-2024 American
+Community Survey 5-year estimates, table B08301, Maryland (FIPS 24),
+workers 16 years and over.
+Published table: https://data.census.gov/table/ACSDT5Y2024.B08301?g=040XX00US24
+API: https://api.census.gov/data/2024/acs/acs5
 
 To download the live estimates, set a Census Data API key in the environment.
 Do not paste the key into this file:
@@ -13,9 +15,7 @@ Do not paste the key into this file:
 
 If CENSUS_API_KEY is not set, the program uses the saved estimates in
 md_b08301_means_of_transportation.csv. Those saved numbers were copied from
-the published table on 2026-11-08. The live API values for the total,
-car/truck/van, public transportation, and worked from home matched this
-file exactly.
+the published 2024 ACS 5-year table on 2026-11-08.
 """
 
 from __future__ import annotations
@@ -34,7 +34,7 @@ import matplotlib.pyplot as plt
 HERE = Path(__file__).resolve().parent
 CSV_PATH = HERE / "md_b08301_means_of_transportation.csv"
 OUT_PATH = HERE.parents[1] / "assets" / "family-d" / "md-means-of-transportation.png"
-API_URL = "https://api.census.gov/data/2025/acs/acs1"
+API_URL = "https://api.census.gov/data/2024/acs/acs5"
 STATE_FIPS = "24"
 
 # variable, label, chart group. The total is not given a group.
@@ -178,7 +178,7 @@ def load_rows():
         print("No CENSUS_API_KEY set. Using the saved CSV.")
         return read_published_rows(CSV_PATH)
     print(
-        "Using live 2025 ACS 1-year estimates for Maryland "
+        "Using live 2020-2024 ACS 5-year estimates for Maryland "
         "from the Census Data API."
     )
     return fetch_live_rows(api_key)
@@ -187,6 +187,7 @@ def load_rows():
 def build_slices(rows):
     """Turn the published rows into the four slices drawn on the chart."""
     total = None
+    total_margin = None
     grouped = {
         key: {"estimate": 0, "squared_margins": 0}
         for key in GROUP_LABELS
@@ -198,13 +199,14 @@ def build_slices(rows):
         group = row["chart_group"].strip()
         if row["variable"] == "B08301_001":
             total = estimate
+            total_margin = margin
             continue
         if group not in grouped:
             raise SystemExit(f"Unknown chart group '{group}' in {row['variable']}.")
         grouped[group]["estimate"] += estimate
         grouped[group]["squared_margins"] += margin ** 2
 
-    if total is None:
+    if total is None or total_margin is None:
         raise SystemExit("The estimates are missing the published total, B08301_001.")
 
     slices = []
@@ -214,13 +216,21 @@ def build_slices(rows):
         # For the combined slice, this is the Census formula for a sum:
         # the square root of the sum of the squared margins.
         margin = math.sqrt(values["squared_margins"])
+        share = estimate / total
+        # Census proportion margin of error. If the usual term under the
+        # square root is negative, the Census approximation adds the terms.
+        under_root = margin ** 2 - (share ** 2) * (total_margin ** 2)
+        if under_root < 0:
+            under_root = margin ** 2 + (share ** 2) * (total_margin ** 2)
+        percent_margin = 100.0 * math.sqrt(under_root) / total
         slices.append(
             {
                 "key": key,
                 "label": GROUP_LABELS[key],
                 "estimate": estimate,
                 "margin": margin,
-                "percent": 100.0 * estimate / total,
+                "percent": 100.0 * share,
+                "percent_margin": percent_margin,
                 "color": COLORS[key],
             }
         )
@@ -230,10 +240,10 @@ def build_slices(rows):
         raise SystemExit(
             f"The slices add to {added:,}, but the published total is {total:,}."
         )
-    return total, slices
+    return total, total_margin, slices
 
 
-def draw_chart(total, slices, out_path: Path):
+def draw_chart(total, total_margin, slices, out_path: Path):
     """Save a pie chart with labels in a legend, not color alone."""
     plt.rcParams["font.family"] = "DejaVu Sans"
 
@@ -250,7 +260,7 @@ def draw_chart(total, slices, out_path: Path):
     )
 
     legend_labels = [
-        f"{LEGEND_LABELS[item['key']]}\n{item['percent']:.1f}% of workers"
+        f"{LEGEND_LABELS[item['key']]}\n{item['percent']:.1f}% ± {item['percent_margin']:.2f}"
         for item in slices
     ]
     legend = ax.legend(
@@ -269,7 +279,7 @@ def draw_chart(total, slices, out_path: Path):
         text.set_color("#1b1b1b")
 
     ax.set_title(
-        "How Maryland workers got to work, 2025",
+        "How Maryland workers got to work, 2020–2024",
         loc="left",
         fontsize=18,
         color="#1b1b1b",
@@ -280,7 +290,8 @@ def draw_chart(total, slices, out_path: Path):
     fig.text(
         0.01,
         0.075,
-        f"Share of {total:,} workers age 16 and over. Percents are rounded to one decimal place.",
+        f"Share of {total:,} workers age 16 and over (±{total_margin:,.0f}). "
+        "Percents are rounded to one decimal place.",
         fontsize=11,
         color="#1b1b1b",
         ha="left",
@@ -288,7 +299,7 @@ def draw_chart(total, slices, out_path: Path):
     fig.text(
         0.01,
         0.03,
-        "Source: U.S. Census Bureau. American Community Survey, 2025 1-year estimates, table B08301.",
+        "U.S. Census Bureau, 2020–2024 American Community Survey 5-Year Estimates, Table B08301.",
         fontsize=11,
         color="#1b1b1b",
         ha="left",
@@ -301,13 +312,14 @@ def draw_chart(total, slices, out_path: Path):
 
 
 def main():
-    total, slices = build_slices(load_rows())
-    draw_chart(total, slices, OUT_PATH)
-    print(f"Published total: {total:,} workers")
+    total, total_margin, slices = build_slices(load_rows())
+    draw_chart(total, total_margin, slices, OUT_PATH)
+    print(f"Published total: {total:,} workers (±{total_margin:,.0f})")
     for item in slices:
         print(
             f"{item['label']}: {item['estimate']:,} "
-            f"(±{item['margin']:,.0f}), {item['percent']:.1f}%"
+            f"(±{item['margin']:,.0f}), {item['percent']:.1f}% "
+            f"(±{item['percent_margin']:.2f})"
         )
     print(f"Saved {OUT_PATH}")
 
