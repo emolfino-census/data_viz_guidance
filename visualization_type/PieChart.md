@@ -29,6 +29,17 @@ description: "Short Description of Pie Chart"
     white-space: pre-wrap !important;
     overflow-wrap: anywhere;
   }
+  .code-details { margin: 1rem 0 1.5rem; }
+  .code-details summary {
+    color: #1e6bb8;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.75rem 0.15rem;
+  }
+  .code-details summary:focus {
+    outline: 3px solid #1e6bb8;
+    outline-offset: 3px;
+  }
 </style>
 
 # Pie Chart
@@ -95,13 +106,13 @@ The picture description states the result. The caption names the chart. The sour
 
 ### Ownership share of all businesses by sex, 2021
 
-This chart is drawn from the Census Bureau's 2021 Nonemployer Statistics by Demographics company summary. It counts employer and nonemployer firms. Each pie shows firms owned by women, owned equally by men and women, owned by men, or unclassifiable. The number under the name is every firm in that place. The same counts are in the table.
+This chart is drawn from the Census Bureau's 2021 Nonemployer Statistics by Demographics company summary. It counts employer and nonemployer firms. Each pie shows firms owned by women, owned equally by men and women, owned by men, or unclassifiable. States sit in a tile grid near their places on a map, and a larger pie shows the United States. The number under each name is every firm in that place. The same counts are in the table.
 
 {% include accessible-figure.html
    id="ownership-pies-2021"
    src="assets/family-d/ownership-by-sex-2021.png"
-   alt="Small pies for the United States and each state showing the sex of business owners in 2021. Of all U.S. firms, 38.6 percent are female-owned, 4.2 percent are owned equally by men and women, 54.1 percent are male-owned, and 3.1 percent are unclassifiable. The number under each name is the total firm count. In Maine, the female-owned count is suppressed."
-   caption="Ownership share of all businesses by sex, 2021. Each pie is the United States or one state."
+   alt="A map of small pies, one in each state's place, plus a larger United States pie, for the sex of business owners in 2021. Of all U.S. firms, 38.6 percent are female-owned, 4.2 percent are owned equally by men and women, 54.1 percent are male-owned, and 3.1 percent are unclassifiable. The number under each name is the total firm count. In Maine, the female-owned count is suppressed."
+   caption="Ownership share of all businesses by sex, 2021. States are arranged like a map, and a larger pie shows the United States."
    source_detail="Nonemployer Statistics by Demographics (NES-D): Company Summary, 2021, table AB2100NESD01. Variable FIRMALL, all sectors."
    source_url="https://data.census.gov/table/ABSNESD2021.AB2100NESD01"
    summary="Show the data table"
@@ -118,18 +129,7 @@ export CENSUS_API_KEY=your_key_here
 python3 examples/family_d/make_ownership_pies.py
 ```
 
-The program needs Python 3 and the matplotlib package. Leave the key out of the program and the saved table. If `CENSUS_API_KEY` is not set, the program tries the Census Data API once and otherwise uses `examples/family_d/absnesd_2021_firms_by_sex.csv`.
-
-The picture below is the Census Bureau interactive chart. It places the states in a map and includes on-screen controls, so it is kept next to the grid above.
-
-{% include accessible-figure.html
-   id="ownership-sex-2021"
-   src="visualization_type/assets/PieChart2.png"
-   alt="Many small pie charts, one for each state, plus a larger pie for the United States, titled Ownership Share of All Businesses By Sex, 2021. Colors show businesses owned by women, owned equally by men and women, owned by men, or unclassifiable. A pale slice means the estimate is suppressed. A count of businesses is printed beside each state. The share for each color is not written on the picture."
-   caption="Ownership share of all businesses by sex, 2021. Each small pie is one state, and a larger pie shows the United States."
-   source_detail="Annual Business Survey (ABS) and Nonemployer Statistics by Demographics (NES-D), 2021."
-   source_url="https://www.census.gov/library/visualizations/interactive/ownership-share-of-businesses-by-demographics.html"
-%}
+The program is saved at <a href="{{ '/examples/family_d/make_ownership_pies.py' | relative_url }}">examples/family_d/make_ownership_pies.py</a>. It needs Python 3 and the matplotlib package. Leave the key out of the program and the saved table. If `CENSUS_API_KEY` is not set, the program tries the Census Data API once and otherwise uses `examples/family_d/absnesd_2021_firms_by_sex.csv`.
 
 The interactive chart is <a href="https://www.census.gov/library/visualizations/interactive/ownership-share-of-businesses-by-demographics.html">Ownership Share of All Businesses by Demographics on census.gov</a>.
 
@@ -140,7 +140,7 @@ Take note of the following characteristics of these pie charts:
 
 ## Make this chart again
 
-The program below is saved at `examples/family_d/make_md_commute_chart.py`. It saves the Maryland commute chart. It needs Python 3 and the matplotlib package.
+The program is saved at <a href="{{ '/examples/family_d/make_md_commute_chart.py' | relative_url }}">examples/family_d/make_md_commute_chart.py</a>. It saves the Maryland commute chart. It needs Python 3 and the matplotlib package.
 
 To download the live 2025 estimates, request a free Census Data API key at https://api.census.gov/data/key_signup.html and set it in your terminal. Leave the key out of the program, this page, and the saved table:
 
@@ -151,7 +151,9 @@ python3 examples/family_d/make_md_commute_chart.py
 
 If `CENSUS_API_KEY` is not set, the program uses the saved file `examples/family_d/md_b08301_means_of_transportation.csv`. Those numbers were copied from the published table on November 8, 2026. The live 2025 values for Maryland match that file: 3,179,937 workers in total, 2,429,541 by car, truck, or van, 174,860 by public transportation, and 435,692 who worked from home.
 
-```python
+<details class="code-details">
+<summary>Show code</summary>
+{% highlight python %}
 #!/usr/bin/env python3
 """Draw a part-to-whole chart of how Maryland workers got to work.
 
@@ -468,7 +470,8 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+{% endhighlight %}
+</details>
 
 ## Accessibility checklist
 

@@ -265,40 +265,75 @@ def margin_of_error(firms, rse):
     return int(round(firms * (rse / 100.0) * MOE_FACTOR))
 
 
+# Row, column on a tile grid that follows the shape of the United States.
+# This is the usual small-multiple state map: Alaska and Hawaii sit at the
+# lower left and upper left, and the East Coast is on the right.
+TILE = {
+    "AK": (0, 0), "ME": (0, 10),
+    "WI": (1, 5), "VT": (1, 9), "NH": (1, 10),
+    "WA": (2, 0), "ID": (2, 1), "MT": (2, 2), "ND": (2, 3), "MN": (2, 4),
+    "IL": (2, 5), "MI": (2, 6), "NY": (2, 8), "MA": (2, 9),
+    "OR": (3, 0), "NV": (3, 1), "WY": (3, 2), "SD": (3, 3), "IA": (3, 4),
+    "IN": (3, 5), "OH": (3, 6), "PA": (3, 7), "NJ": (3, 8), "CT": (3, 9),
+    "RI": (3, 10),
+    "CA": (4, 0), "UT": (4, 1), "CO": (4, 2), "NE": (4, 3), "MO": (4, 4),
+    "KY": (4, 5), "WV": (4, 6), "VA": (4, 7), "MD": (4, 8), "DE": (4, 9),
+    "AZ": (5, 1), "NM": (5, 2), "KS": (5, 3), "AR": (5, 4), "TN": (5, 5),
+    "NC": (5, 6), "SC": (5, 7), "DC": (5, 8),
+    "OK": (6, 3), "LA": (6, 4), "MS": (6, 5), "AL": (6, 6), "GA": (6, 7),
+    "HI": (7, 0), "TX": (7, 3), "FL": (7, 8),
+}
+
+
+def _draw_pie(axis, place, title_size):
+    sizes = [
+        item["firms"]
+        for item in place["groups"]
+        if not item["suppressed"] and item["firms"]
+    ]
+    colors = [
+        COLORS[item["code"]]
+        for item in place["groups"]
+        if not item["suppressed"] and item["firms"]
+    ]
+    if sizes:
+        axis.pie(
+            sizes,
+            colors=colors,
+            startangle=90,
+            counterclock=False,
+            wedgeprops={"edgecolor": "#1b1b1b", "linewidth": 0.6},
+        )
+    title = place["abbrev"] if place["abbrev"] != "US" else "United States"
+    if place["total"] is not None:
+        title = f"{title}\n{place['total']:,}"
+    axis.set_title(title, fontsize=title_size, color="#1b1b1b", pad=1)
+
+
 def draw_chart(places, out_path: Path):
-    """Save a grid of state pies with a legend and a source line."""
+    """Save state pies in a map-shaped tile grid, with the U.S. pie above."""
     plt.rcParams["font.family"] = "DejaVu Sans"
-    columns = 4
-    rows = math.ceil(len(places) / columns)
-    fig = plt.figure(figsize=(11.4, 2.4 + rows * 2.15), dpi=110)
+    by_abbrev = {place["abbrev"]: place for place in places}
+    missing = [code for code in TILE if code not in by_abbrev]
+    if missing:
+        raise SystemExit(f"Missing a state for the map: {', '.join(missing)}")
+    fig = plt.figure(figsize=(13.2, 11.6), dpi=110)
     fig.patch.set_facecolor("#ffffff")
     grid = fig.add_gridspec(
-        rows,
-        columns,
-        left=0.03,
-        right=0.99,
-        top=0.90,
-        bottom=0.055,
-        wspace=0.15,
-        hspace=0.45,
+        9,
+        11,
+        left=0.02,
+        right=0.98,
+        top=0.86,
+        bottom=0.07,
+        wspace=0.08,
+        hspace=0.55,
     )
-    for index, place in enumerate(places):
-        axis = fig.add_subplot(grid[index // columns, index % columns])
-        axis.set_facecolor("#ffffff")
-        sizes = [item["firms"] for item in place["groups"] if not item["suppressed"] and item["firms"]]
-        colors = [COLORS[item["code"]] for item in place["groups"] if not item["suppressed"] and item["firms"]]
-        if sizes:
-            axis.pie(
-                sizes,
-                colors=colors,
-                startangle=90,
-                counterclock=False,
-                wedgeprops={"edgecolor": "#1b1b1b", "linewidth": 0.6},
-            )
-        title = place["abbrev"]
-        if place["total"] is not None:
-            title = f"{place['abbrev']}\n{place['total']:,}"
-        axis.set_title(title, fontsize=10, color="#1b1b1b", pad=2)
+    united = by_abbrev.get("US")
+    if united:
+        _draw_pie(fig.add_subplot(grid[0, 4:7]), united, 11)
+    for abbrev, (row, col) in TILE.items():
+        _draw_pie(fig.add_subplot(grid[row + 1, col]), by_abbrev[abbrev], 8)
 
     handles = [
         Patch(facecolor=COLORS[code], edgecolor="#1b1b1b", label=SEX_LABELS[code])
@@ -325,7 +360,8 @@ def draw_chart(places, out_path: Path):
     fig.text(
         0.03,
         0.028,
-        "Each pie uses the published owner groups. The number under the name is all firms. "
+        "States sit where they do on a map. Each pie uses the published owner groups. "
+        "The number under the name is all firms. "
         "Groups are rounded separately from that total. "
         "In Maine, the female-owned count is suppressed.",
         fontsize=8,
