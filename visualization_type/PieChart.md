@@ -70,31 +70,6 @@ In addition to the guidance provided in this section, relevant guidance can also
 * Don’t use multi-level pie charts as they are difficult to decipher. (like those that use consecutive rings, nested doughnut charts)
 * Don’t use two or more pie charts to compare against each other. An alternative is to use bar charts.
 
-## Examples
-
-***Example 1.*** Management in U.S. Manufacturing
-
-<img src="{{ '/visualization_type/assets/PieChart1.png' | relative_url }}" alt="Pie chart of key performance indicators in U.S. manufacturing. The slices are 3 to 9 indicators at 47.97 percent, 10 or more indicators at 34.65 percent, no indicators at 9.43 percent, and 1 to 2 indicators at 7.95 percent.">
-
-Source: U.S. Census Bureau, Massachusetts Institute of Technology, National Bureau of Economic Research, and Stanford University; 2015 Management and Organizational Practices Survey (MOPS). Accessed in March 2019.
-
-Notice the following characteristics with this pie chart:
-
-* High contrast colors are used as well as outlines to distinguish the wedges of the pie chart.
-* The values being represented in the visualization are written out on top of each wedge, helping the user interpret the differences in the sizes of each wedge.
-* An appropriate number of wedges are being displayed for the user to interpret easily.
-* A legend is used to define each wedge.
-
-***Example 2:*** Ownership Share of All Businesses By Sex: 2021
-
-<img src="{{ '/visualization_type/assets/PieChart2.png' | relative_url }}" alt="Small pie charts for U.S. states showing the ownership share of all businesses by sex in 2021. Colors stand for female, equally male and female, male, and unclassifiable ownership.">
-
-The interactive chart is <a href="https://www.census.gov/library/visualizations/interactive/ownership-share-of-businesses-by-demographics.html">Ownership Share of All Businesses by Demographics on census.gov</a>.
-
-Take note of the following characteristics of these pie charts:
-* A legend is used to define all the wedges of the pie charts.
-* On hover of each wedge slice, the value represented by the wedge is displayed along with margins of error which helps to communicate the uncertainty with the estimates being displayed. 
-
 ## An accessible example
 
 This example is a part-to-whole chart for Family D. It uses four slices, because this page recommends staying near three or four. The smallest published ways of getting to work are added together in the last slice. The table under the chart lists each of those published numbers on its own.
