@@ -3,7 +3,7 @@ layout: default
 title: Pie Chart
 permalink: piechart.html
 tags: [Distribution]
-description: "Short Description of Pie Chart"
+description: "When to use pie charts, when to choose alternatives, and how to present part-to-whole Census data clearly."
 ---
 
 <style>
@@ -66,44 +66,72 @@ description: "Short Description of Pie Chart"
 
 # Pie Chart
 
-Also known as: circle chart
+**Also known as:** Circle chart
 
-A pie chart is a circular graph that presents values as proportionate wedges or slices of a circle.
+## Purpose and Overview
 
-It is strongly suggested not to use a pie chart to depict data. Before using a pie chart, consider using a [bar chart](https://xdgov.github.io/data-design-standards/visualizations/bar-chart), stacked bar chart, a table, donut chart or displaying numeric values directly for improved usability.
+A pie chart presents values as wedges of a circle, with each wedge representing a share of a whole.
 
-Pie charts are one of the most commonly used data visualizations but are often not the most effective way to compare data values. This failure in effectiveness is mainly due to problems interpreting the size of each wedge and the number of data categories being represented. Pie charts can also be represented as a doughnut chart, which is generally better for users to compare the size of each wedge or arc.
+Pie charts are familiar, but readers can find it difficult to compare wedge sizes, especially when categories have similar values. Consider a bar chart, stacked bar chart, table, donut chart, or directly displayed numbers before choosing a pie chart. A donut chart is another part-to-whole display, not a solution to every comparison problem.
 
-## Guidance
-In addition to the guidance provided in this section, relevant guidance can also be found in the [Agency Logo](https://xdgov.github.io/data-design-standards/components/agency-logo), [Axes](https://xdgov.github.io/data-design-standards/components/axes), [Colors](https://xdgov.github.io/data-design-standards/components/colors), [Grids](https://xdgov.github.io/data-design-standards/components/grids), [Legends](https://xdgov.github.io/data-design-standards/components/legends), [Source](https://xdgov.github.io/data-design-standards/components/source), [Titles](https://xdgov.github.io/data-design-standards/components/titles), [Typography](https://xdgov.github.io/data-design-standards/components/typography) sections.
+## When to Use
 
-## Best Practices
+* The main question concerns how a small number of categories contribute to one whole.
+* The categories are mutually exclusive and together cover the whole.
+* Broad differences in shares matter more than precise comparisons between similar values.
+* The chart can remain near three or four slices.
 
-### Essential
+## When to Use an Alternative
+
+* Use another display when readers need precise comparisons, when there are many categories, or when shares are similar.
+* Avoid using several pie charts to compare places, groups, or time periods. A display with a common baseline is usually easier to compare.
+* Do not use a pie chart for overlapping categories or values that do not form one meaningful whole.
+
+## Choosing Between Alternatives
+
+| Analytical Goal | Alternative Visualization | Why It May Be Preferable |
+|---|---|---|
+| Compare category values or similar shares precisely | Bar chart | Lengths on a common baseline are easier to compare than angles. |
+| Compare composition across groups | Stacked bar chart | Shows the groups together without requiring comparisons between separate circles. |
+| Provide exact values and uncertainty | Table | Readers can look up detailed values directly. |
+| Communicate one or two key values | Directly displayed numbers | Avoids an unnecessary chart. |
+| Use a circular part-to-whole layout | Donut chart | Provides space for a central label, although similar slice-comparison limitations remain. |
+
+## Data Requirements and Statistical Considerations
+
+* Define the whole, including its population, geography, reference period, and units.
+* Use mutually exclusive categories that together account for the whole. The underlying shares should total 100 percent; explain any differences caused by rounding.
+* If small categories are combined, explain the grouping and keep the original categories available in a data table.
+* Explain missing or suppressed values. Do not treat them as zero or silently redefine the whole by excluding them.
+* When appropriate, provide measures of uncertainty and identify the measure used. See the Visualizing Uncertainty guidance.
+* If statistical significance is indicated with patterns or other markings, explain what those markings mean. Do not rely on color alone.
+
+## Visualization-Specific Considerations
+
+### Essential Requirements
 
 * Include a legend or label wedges directly.
-* Ensure that the values of the wedges total to 100%.
-* When appropriate, display measures of uncertainty and indicate the measure being used within the chart, please see the section Showing Uncertainty. 
+* Make clear what each wedge represents and what constitutes the whole.
+* Provide descriptive alt text and an accessible data table.
+* Do not use three-dimensional effects, which distort perceived wedge sizes.
 
-### Avoid
+### Recommended Practices
 
-* Never use three-dimensional (3D) graphics as they distort the visual calculation of volume.
+* Stay near three or four slices. Consider a bar chart when more categories are needed.
+* Use distinguishable colors and consider outlines or patterns to help separate wedges.
+* Include category names and shares so readers do not have to interpret color alone.
+* Follow the related Agency Logo, Color, Legends, Notes, Sources, Titles, Typography, and 508 Compliance guidance where applicable.
 
-## Additional Recommendations
+### Practices to Avoid
 
-### Recommended
+* Do not use large gaps between wedges, as in an exploded pie chart.
+* Do not use multi-level pies or nested donut rings when they make the display difficult to interpret.
+* Do not rely on comparisons between separate pie charts when a bar chart would make the differences clearer.
+* Do not imply that a small visual difference establishes statistical significance.
 
-* Use contrasting color to ensure the wedges stand out. Consider using contrasting outlines to make each wedge stands out.
-* Consider not using more than 3-4 wedge pieces. With more wedges, it becomes harder to discern differences. If more are needed, consider using a bar chart.
-* Use hash marks or different colors to signify statistical significance.
+## Census Data Example
 
-### Not recommended
-
-* Don’t include large gaps between each wedge, such as in an exploded pie chart. This distorts the perceived sizes of the pie wedges.
-* Don’t use multi-level pie charts as they are difficult to decipher. (like those that use consecutive rings, nested doughnut charts)
-* Don’t use two or more pie charts to compare against each other. An alternative is to use bar charts.
-
-## An accessible example
+### How Maryland workers got to work, 2025
 
 This example is a part-to-whole chart. It uses four slices, because this page recommends staying near three or four. The smallest published ways of getting to work are added together in the last slice. The table under the chart lists each of those published numbers on its own.
 
@@ -144,8 +172,9 @@ This chart is drawn from the Census Bureau's 2021 Nonemployer Statistics by Demo
    note="The share is the owner group's percent of all firms in that place. The groups are rounded separately from the total, so the shares may not add to 100. The margin of error is calculated from the published relative standard error for an approximate 90 percent level: firms times the relative standard error times 1.645, rounded to the nearest firm. In Maine, the count of firms owned by women is suppressed."
 %}
 
-To draw this picture again, from the project folder:
+#### Reproduce the ownership example
 
+To draw this picture again, from the project folder:
 ```
 export CENSUS_API_KEY=your_key_here
 python3 examples/family_d/make_ownership_pies.py
@@ -564,14 +593,19 @@ if __name__ == "__main__":
 {% endhighlight %}
 </details>
 
-The interactive chart is <a href="https://www.census.gov/library/visualizations/interactive/ownership-share-of-businesses-by-demographics.html">Ownership Share of All Businesses by Demographics on census.gov</a>.
+#### Related interactive visualization
 
-Take note of the following characteristics of these pie charts:
+The related interactive chart is [Ownership Share of All Businesses by Demographics on census.gov](https://www.census.gov/library/visualizations/interactive/ownership-share-of-businesses-by-demographics.html).
 
-* A legend is used to define all the wedges of the pie charts.
-* On hover of each wedge slice, the value represented by the wedge is displayed along with margins of error which helps to communicate the uncertainty with the estimates being displayed.
+Its legend and hover details provide additional information, including values and margins of error. Hover details can supplement a chart, but essential information should also be available to keyboard and touchscreen users.
 
-## Make this chart again
+This example uses multiple pies arranged geographically. Consider a bar chart when the main task is precise comparison between places.
+
+## Developer Implementation
+
+The ownership example's Python instructions appear with that example above. The following instructions reproduce the Maryland commute chart.
+
+### Reproduce the Maryland commute example
 
 <a href="{{ '/examples/family_d/make_md_commute_chart.py' | relative_url }}">Download the Python script</a>. It saves the Maryland commute chart. It needs Python 3 and the matplotlib package.
 
@@ -906,7 +940,7 @@ if __name__ == "__main__":
 {% endhighlight %}
 </details>
 
-## Accessibility checklist
+### Accessibility Review
 
 Use this list before publishing a pie chart. More requirements are on the [508 compliance](508.html) page.
 
@@ -918,3 +952,27 @@ Use this list before publishing a pie chart. More requirements are on the [508 c
 * Choose colors that people with color blindness can tell apart, and give text a contrast of at least 4.5 to 1.
 * Stay near four slices. In this example the smallest modes are added together, and each published number is still listed in the table.
 * Do not use 3D effects or exploded slices. They make the sizes harder to judge.
+
+## Common Errors and Misinterpretations
+
+| Issue | Why It Matters | Recommended Correction |
+|---|---|---|
+| Categories overlap or do not cover the whole | Wedge sizes imply a part-to-whole relationship that the data do not support. | Use mutually exclusive categories covering the whole, or choose another chart. |
+| Too many slices or similar shares | Readers struggle to compare wedge sizes. | Use a bar chart or simplify categories with a documented grouping. |
+| Missing or suppressed values are omitted without explanation | The displayed shares may imply a different whole. | Explain the missing information and avoid silently rescaling the remaining categories. |
+| Several pies are used for precise comparisons | Readers must compare angles across separate circles. | Consider bars with a common baseline. |
+| 3D effects or exploded slices distort the display | Perceived wedge sizes can differ from the data. | Use a flat chart without large gaps. |
+| Color or hover is the only way to obtain information | Some readers cannot identify categories or access details. | Provide labels, descriptive alt text, and an accessible data table. |
+| A visual difference is treated as statistically significant | Readers may draw conclusions unsupported by the estimates. | Provide relevant uncertainty and explain any significance testing. |
+
+## Publication Quality Checklist
+
+- [ ] The visualization fits the analytical question.
+- [ ] Relevant alternatives were considered.
+- [ ] Data source, geography, reference period, and units are documented.
+- [ ] Data transformations and aggregation are appropriate.
+- [ ] Missing values and relevant uncertainty are addressed.
+- [ ] Existing accessibility, scaling, and axes guidance has been followed.
+- [ ] Chart-specific limitations and caveats are explained.
+- [ ] Code examples have been executed and verified.
+- [ ] The visualization has undergone the appropriate review.
