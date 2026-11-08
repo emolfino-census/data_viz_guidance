@@ -79,8 +79,7 @@ This chart is a good example of the following:
   
 ***Example 3:*** US Marriage and Divorce Rates for Women by State
 
-[![Introduction page of an interactive dashboard titled U.S. Marriage and Divorce Rates for Women by State. It explains that rates are the number of women married or divorced in the past 12 months per 1,000 women aged 15 and over, with a worked example giving the 2021 national marriage rate of 14.9. A bar chart shows that marriage and divorce rates both fell from 2011 to 2021, and notes explain that hovering shows details and margins of error appear in parentheses.
-](assets/InteractiveChart3.png)](https://public.tableau.com/app/profile/us.census.bureau/viz/MarriageandDivorceRatesbyState2011and2021/IntroDASH)
+[![Introduction page of the U.S. Marriage and Divorce Rates for Women by State dashboard, with definitions, a worked example, and a bar chart comparing national marriage and divorce rates in 2011 and 2021.]({{ '/component/assets/InteractiveChart3.png' | relative_url }})](https://public.tableau.com/app/profile/us.census.bureau/viz/MarriageandDivorceRatesbyState2011and2021/IntroDASH)
 
 This chart is a good example of the following:
 
