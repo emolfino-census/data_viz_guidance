@@ -131,7 +131,7 @@ Pie charts are familiar, but readers can find it difficult to compare wedge size
 
 ## Census Data Example
 
-### How Maryland workers got to work, 2025
+### How Maryland workers got to work, 2020–2024
 
 This example is a part-to-whole chart. It uses four slices, because this page recommends staying near three or four. The smallest published ways of getting to work are added together in the last slice. The table under the chart lists each of those published numbers on its own.
 
