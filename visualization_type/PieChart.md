@@ -472,6 +472,7 @@ TILE = {
     "HI": (7, 0), "TX": (7, 3), "FL": (7, 8),
 }
 
+
 def _draw_pie(axis, place, title_size):
     # If any owner group is suppressed, do not draw a pie. Drawing the
     # remaining slices would renormalize them and misstate each group's
