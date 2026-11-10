@@ -14,7 +14,7 @@ description: "A treemap shows parts of a whole as nested rectangles sized by val
 
 A treemap visualizes hierarchical data as groups of nested rectangles.
 
-A treemap shares qualities with both network and area diagrams. It gets its name from a tree diagram, which also displays hierarchical data. The key feature of a treemap is that the size of each rectangle represents the value of each category of data, making it possible to convey more information about each category of data in a smaller space.
+A treemap shares qualities with both network and area diagrams. It gets its name from a tree diagram, which also displays hierarchical data. The key feature of a treemap is that each rectangle's size represents its category's value, allowing it to convey more information in a smaller space.
 
 ## When to Use
 
@@ -84,7 +84,7 @@ A reproducible Python example using U.S. Census Bureau data will be added in a l
 |---|---|---|
 | Using a treemap for ordered categories | Readers lose the natural order, such as youngest to oldest. | Use a bar chart that keeps the order. |
 | Color repeats the size | The second encoding adds no information. | Use color for a different measure, or one color per group. |
-| Low-contrast text in rectangles | Labels are hard or impossible to read. | Check contrast is at least 4.5: 1. |
+| Low-contrast text in rectangles | Labels are hard or impossible to read. | Check contrast is at least 4.5:1. |
 | Too many tiny rectangles | Small categories are hard to see or label. | Combine small categories or add a data table. |
 | Color as the only way to identify groups | Readers with color blindness cannot match groups. | Add direct labels or a text-based legend. |
 
