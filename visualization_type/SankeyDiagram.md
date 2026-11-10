@@ -18,7 +18,7 @@ Sankey diagrams usually have two parallel sets of nodes. Alluvial charts have mo
 
 ## When to Use
 
-Sankey diagrams show movement in data across stages. Use them to show change, not comparison.
+Sankey diagrams show how data moves across stages. Use them to show change, not comparison.
 
 Use a Sankey diagram when:
 
@@ -64,6 +64,14 @@ In addition to the guidance provided in this section, relevant guidance can also
 * If using color for flows, alternate colors to keep high contrast, or outline flows so readers can follow each one from one side to the other.
 * When flows of the same color cross, use a darker color for the intersection.
 * Label nodes directly with text so color is not the only way to identify them.
+## Accessibility
+ 
+* Write alt text that states the main flow or transfer takeaway (what moves from where to where, and the scale), not only that the image is a Sankey diagram.
+* Provide a data table of the flows, with source, target, and value, so readers do not have to trace bands to recover the numbers.
+* Label nodes directly. Color can group nodes or distinguish flows, but it should not be the only way to identify them. When flows of the same color cross, use an outline or a darker intersection so each path stays easy to follow.
+* Keep node and flow labels at a contrast of at least 4.5:1 against their background. Keep flow fills or outlines at least 3:1 against the background so bands remain visible.
+* If hover highlighting is used to trace a flow, do not make hover the only way to read that path. For full requirements, see the [508 Compliance](508.html) and [Color](color.html) pages. Meeting these bullets does not by itself mean a chart is 508 compliant.
+ 
 
 ## Census Data Example
 
@@ -81,7 +89,7 @@ This chart is a good example of the following:
 
 ***Example 2:*** United States Energy-related Carbon Dioxide Emissions in 2021: 4,863 million metric tons (Lawrence Livermore National Laboratory and U.S. Department of Energy, not Census Bureau data)
 
-![Sankey diagram from Lawrence Livermore National Laboratory showing U.S. energy-related carbon dioxide emissions in 2021, totaling 4,863 million metric tons. Colored flows run from energy sources on the left, mainly petroleum at 2,223, natural gas at 1,637, and coal at 1,003, either directly to end-use sectors or through electricity generation (1,537). The end-use sectors are transportation at 1,801, industrial at 965, residential at 321, and commercial at 239. Those four sectors plus electricity generation add to 4,863. Gray flows then join into total carbon dioxide emissions on the right. Solar, nuclear, hydro, wind, geothermal, and biomass show 0.](assets/SankeyDiagram2.png)
+![Sankey diagram from Lawrence Livermore National Laboratory showing U.S. energy-related carbon dioxide emissions in 2021, totaling 4,863 million metric tons. Colored flows run from energy sources on the left, mainly petroleum at 2,223, natural gas at 1,637, and coal at 1,003, either directly to end-use sectors or through electricity generation (1,537). The end-use sectors are transportation at 1,801, industrial at 965, residential at 321, and commercial at 239. Those four sectors plus electricity generation add to 4,863. Gray flows then join to form total carbon dioxide emissions on the right. Solar, nuclear, hydro, wind, geothermal, and biomass show 0.](assets/SankeyDiagram2.png)
 
 Full visualization can be found at [Annual Energy and Carbon Flow Charts](https://flowcharts.llnl.gov/commodities/carbon)
 
@@ -114,3 +122,11 @@ A reproducible Python example using U.S. Census Bureau data will be added in a l
 - [ ] Chart-specific limitations and caveats are explained.
 - [ ] Code examples have been executed and verified.
 - [ ] The visualization has undergone the appropriate review.
+ 
+## Related Pages
+ 
+* [Stacked Bar Chart](stackedbarchart.html): a simpler way to show composition when the story does not depend on flows from one stage to another.
+* [Interactive Chart](interactivechart.html): guidance if hover is used to highlight a flow; essential information should not live only in the hover.
+* [Color](color.html): contrast and color-vision guidance for nodes and crossing flows.
+* [Notes](note.html): how to explain selected programs, omitted flows, or other caveats.
+* [508 Compliance](508.html): general accessibility requirements, including a data table of flows.
