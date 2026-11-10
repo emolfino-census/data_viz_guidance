@@ -54,7 +54,7 @@ Use a Sankey diagram when:
 
 ## Visualization-Specific Considerations
 
-In addition to the guidance provided in this section, relevant guidance can also be found in the Agency Logo, Colors, Source, Titles, Typography sections.
+In addition to the guidance provided in this section, relevant guidance can also be found in the Agency Logo, Colors, Source, Titles, and Typography sections.
 
 * The width of flows must be proportional to the quantity it represents.
 * Keep the number of crossings between flows as low as possible.
