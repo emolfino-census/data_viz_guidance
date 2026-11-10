@@ -129,6 +129,15 @@ Pie charts are familiar, but readers can find it difficult to compare wedge size
 * Do not rely on comparisons between separate pie charts when a bar chart would make the differences clearer.
 * Do not imply that a small visual difference establishes statistical significance.
 
+## Accessibility
+ 
+* Write alt text that states the main part-to-whole takeaway, not only that the image is a pie chart. Include the dataset, geography, and reference period when they are not already in nearby text.
+* Provide the values in a data table or an equivalent text format so readers do not have to rely on the wedges alone.
+* Label each wedge with the category and value (or percent). Color can support the display, but it should not be the only way to tell slices apart.
+* Keep text at a contrast of at least 4.5:1 against its background. Keep wedge fills or outlines at least 3:1 against the background and against neighboring slices so the boundaries stay visible.
+* For full requirements, see the [508 Compliance](508.html) and [Color](color.html) pages. Meeting these bullets does not by itself mean a chart is 508 compliant.
+ 
+
 ## Census Data Example
 
 ### How Maryland workers got to work, 2020–2024
@@ -976,15 +985,15 @@ if __name__ == "__main__":
 
 ### Accessibility Review
 
-Use this list before publishing a pie chart. More requirements are on the [508 compliance](508.html) page.
+Use this list as developer checks when implementing the examples on this page. It complements the Accessibility section above. More requirements are on the [508 Compliance](508.html) page.
 
 * Say what the chart means in the picture description, and include the main numbers.
 * Give the chart a caption that says what it is about.
 * Start the source line with "Source: U.S. Census Bureau," then name the survey, the year, and the table.
 * Put the same numbers in a table with a title and column headings. A reader should be able to open that table with the keyboard.
 * Write the name and percent for every slice. Color can help, but it cannot be the only way to tell the slices apart.
-* Choose colors that people with color blindness can tell apart, and give text a contrast of at least 4.5 to 1.
-* Stay near four slices. In this example the smallest modes are added together, and each published number is still listed in the table.
+* Choose colors that people with color blindness can tell apart, and give text a contrast of at least 4.5:1.
+* Stay near four slices. In this example, the smallest modes are added together, and each published number is still listed in the table.
 * Do not use 3D effects or exploded slices. They make the sizes harder to judge.
 
 ## Common Errors and Misinterpretations
@@ -1010,3 +1019,12 @@ Use this list before publishing a pie chart. More requirements are on the [508 c
 - [ ] Chart-specific limitations and caveats are explained.
 - [ ] Code examples have been executed and verified.
 - [ ] The visualization has undergone the appropriate review.
+ 
+## Related Pages
+ 
+* [Donut Chart](donutchart.html): another part-to-whole layout that can show a total in the center.
+* [Bar Chart](barchart.html): often a clearer choice when the goal is to compare category sizes rather than shares of a whole.
+* [Stacked Bar Chart](stackedbarchart.html): a better alternative when comparing composition across more than two groups.
+* [Notes](note.html): how to document suppression, missing categories, and other caveats next to the chart.
+* [Color](color.html): contrast and color-vision guidance for wedge fills and labels.
+* [508 Compliance](508.html): general accessibility requirements for charts and text.
