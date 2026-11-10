@@ -12,13 +12,13 @@ description: "A Sankey diagram shows how amounts flow from one stage or group to
 
 ## Purpose and Overview
 
-A Sankey diagram is a type of flow chart that shows how data flows and changes from one stage to the next. Entities (nodes) are shown as rectangle bars whose height represents their value. Links show the connection (flow) between two nodes, and the width of each flow is proportional to the size of that flow.
+A Sankey diagram is a flow chart that shows how data flows and changes from one stage to the next. Entities (nodes) are shown as rectangular bars whose height represents their value. Links show the connection (flow) between two nodes, and each flow's width is proportional to its size.
 
 Sankey diagrams usually have two parallel sets of nodes. Alluvial charts have more than two parallel sets of nodes and show how data flows and changes through multiple stages.
 
 ## When to Use
 
-Sankey diagrams are a useful way to show movement in the data across stages. Use them to show change rather than comparison.
+Sankey diagrams show movement in data across stages. Use them to show change, not comparison.
 
 Use a Sankey diagram when:
 
@@ -54,7 +54,7 @@ Use a Sankey diagram when:
 
 ## Visualization-Specific Considerations
 
-In addition to the guidance provided in this section, relevant guidance can also be found in the Agency Logo, Colors, Source, Titles, Typography sections.
+In addition to the guidance provided in this section, relevant guidance can also be found in the Agency Logo, Colors, Source, Titles, and Typography sections.
 
 * The width of flows must be proportional to the quantity it represents.
 * Keep the number of crossings between flows as low as possible.
@@ -69,7 +69,7 @@ In addition to the guidance provided in this section, relevant guidance can also
 
 ***Example 1:*** Post-Secondary Employment Outcomes Explorer
 
-![Sankey diagram from the Census Bureau's Post-Secondary Employment Outcomes Explorer showing where master's graduates from the University of Virginia end up. On the left, three program bars show each program's share of graduates: Engineering 67 percent, Social Sciences 21 percent, and Mathematics and Statistics 12 percent. Gray flows run from each program to two outcomes on the right: Employed, 51 percent, and No or very low earnings observed, 49 percent.](assets/SankeyDiagram1.png)
+![Sankey diagram from the Census Bureau's Post-Secondary Employment Outcomes Explorer showing where master's graduates from three selected programs at the University of Virginia end up, for all graduation cohorts. On the left, the three selected program bars show each program's share of graduates in that selection: Engineering 67 percent, Social Sciences 21 percent, and Mathematics and Statistics 12 percent. Gray flows run from each program to two outcomes on the right: Employed, 51 percent, and No or very low earnings observed, 49 percent.](assets/SankeyDiagram1.png)
 
 Full visualization can be found at [Post-Secondary Employment Outcomes Explorer](https://lehd.ces.census.gov/applications/pseo/?type=flows&specificity=2&state=51&institution=00374500&degreelevel=07&gradcohort=0000-5&filter=1&display=share&program=45,14,27&destination=none)
 
@@ -81,9 +81,9 @@ This chart is a good example of the following:
 
 ***Example 2:*** United States Energy-related Carbon Dioxide Emissions in 2021: 4,863 million metric tons (Lawrence Livermore National Laboratory and U.S. Department of Energy, not Census Bureau data)
 
-![Sankey diagram from Lawrence Livermore National Laboratory showing U.S. energy-related carbon dioxide emissions in 2021, totaling 4,863 million metric tons. Colored flows run from energy sources on the left, mainly petroleum at 2,223, natural gas at 1,637, and coal at 1,003, through electricity generation to four end-use sectors: transportation at 1,801, industrial at 965, residential at 321, and commercial at 239. Gray flows then join into total carbon dioxide emissions on the right. Solar, nuclear, hydro, wind, and geothermal show 0.](assets/SankeyDiagram2.png)
+![Sankey diagram from Lawrence Livermore National Laboratory showing U.S. energy-related carbon dioxide emissions in 2021, totaling 4,863 million metric tons. Colored flows run from energy sources on the left, mainly petroleum at 2,223, natural gas at 1,637, and coal at 1,003, either directly to end-use sectors or through electricity generation (1,537). The end-use sectors are transportation at 1,801, industrial at 965, residential at 321, and commercial at 239. Those four sectors plus electricity generation add to 4,863. Gray flows then join into total carbon dioxide emissions on the right. Solar, nuclear, hydro, wind, geothermal, and biomass show 0.](assets/SankeyDiagram2.png)
 
-Full visualization can be found at [Annual Energy and Carbon Flow Charts](https://www.energy.gov/energysaver/articles/annual-energy-and-carbon-flow-charts-detail-us-energy-use-sources-and)
+Full visualization can be found at [Annual Energy and Carbon Flow Charts](https://flowcharts.llnl.gov/commodities/carbon)
 
 This chart is a good example of the following:
 
