@@ -472,26 +472,46 @@ TILE = {
     "HI": (7, 0), "TX": (7, 3), "FL": (7, 8),
 }
 
-
 def _draw_pie(axis, place, title_size):
-    sizes = [
-        item["firms"]
-        for item in place["groups"]
-        if not item["suppressed"] and item["firms"]
-    ]
-    colors = [
-        COLORS[item["code"]]
-        for item in place["groups"]
-        if not item["suppressed"] and item["firms"]
-    ]
-    if sizes:
-        axis.pie(
-            sizes,
-            colors=colors,
-            startangle=90,
-            counterclock=False,
-            wedgeprops={"edgecolor": "#1b1b1b", "linewidth": 0.6},
+    # If any owner group is suppressed, do not draw a pie. Drawing the
+    # remaining slices would renormalize them and misstate each group's
+    # share of all firms. Do not invent a residual or suppressed count.
+    if any(item["suppressed"] for item in place["groups"]):
+        axis.set_axis_off()
+        axis.text(
+            0.5,
+            0.5,
+            "Chart not shown\n"
+            "because an ownership\n"
+            "category is suppressed.\n"
+            "See the data table\n"
+            "for published values.",
+            ha="center",
+            va="center",
+            fontsize=7 if title_size <= 8 else 8,
+            color="#1b1b1b",
+            linespacing=1.15,
+            transform=axis.transAxes,
         )
+    else:
+        sizes = [
+            item["firms"]
+            for item in place["groups"]
+            if not item["suppressed"] and item["firms"]
+        ]
+        colors = [
+            COLORS[item["code"]]
+            for item in place["groups"]
+            if not item["suppressed"] and item["firms"]
+        ]
+        if sizes:
+            axis.pie(
+                sizes,
+                colors=colors,
+                startangle=90,
+                counterclock=False,
+                wedgeprops={"edgecolor": "#1b1b1b", "linewidth": 0.6},
+            )
     title = place["abbrev"] if place["abbrev"] != "US" else "United States"
     if place["total"] is not None:
         title = f"{title}\n{place['total']:,}"
