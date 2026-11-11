@@ -44,11 +44,12 @@ In addition to the guidance provided in this section, relevant guidance can also
 
 ## Accessibility
  
-* Keep axis and tick labels at a contrast of at least 4.5:1 against the background, and make sure gridlines do not cross through Text in a way that reduces that contrast.
+* Keep axis and tick labels at a contrast of at least 4.5:1 against the background, and make sure gridlines do not cross through text in a way that reduces that contrast.
 * If readers must use the gridlines to read values, keep those lines at least 3:1 against the background. Even then, draw them thinner or lighter than the data so the series stays primary.
 * Do not rely on gridlines alone when precise values matter. Use direct labels or provide a data table.
 * On maps, add graticules only when they help interpretation, and keep their labels readable at the intended size.
 * For full requirements, see the [508 Compliance](508.html), [Color](color.html), and [Axes](axes.html) pages. Meeting these bullets does not by itself mean a visualization is 508 compliant.
+ 
 
 ## Census Data Examples
 
