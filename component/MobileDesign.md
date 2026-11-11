@@ -19,7 +19,7 @@ Mobile users may have different goals from desktop users. For example, they may 
 
 Apply this guidance when creating or updating an interactive chart, map, or dashboard that people may use on a smartphone or tablet.
 
-In addition to the guidance provided in this section, relevant guidance can also be found in the 508 Compliance, Color, Interactive Chart, and Typography sections.
+In addition to this section, relevant guidance is in the 508 Compliance, Color, Interactive Chart, and Typography sections.
 
 ## Essential Requirements
 
@@ -35,7 +35,7 @@ In addition to the guidance provided in this section, relevant guidance can also
 * Wrap text and adjust chart formatting to avoid unnecessary horizontal scrolling. Vertical scrolling is generally easier to discover and use on mobile devices.[^1]
 * Use responsive web design so the layout adjusts and wraps to fit the available screen size.[^1]
 * Support both portrait and landscape use rather than requiring users to turn their device to read the visualization.
-* If a dashboard scrolls, make it clear that more content is available below the screen. For example, allow part of the next section to remain visible at the bottom.[^7]
+* If a dashboard scrolls, make it clear that more content is available below the screen. For example, keep part of the next section visible at the bottom.[^7]
 * Position interactive elements so they are easy to reach when the device is held in different positions.[^3]
 * Improve performance on slower mobile networks by reducing image sizes, optimizing data extracts, limiting the number of marks, and using efficient calculations.
 * Make additional information available on tap rather than relying on mouse hover. Keep essential information available without opening a tooltip.
@@ -87,11 +87,11 @@ Access the full visualization: [Digital Equity Act Population Viewer](https://ww
 
 | Issue | Why It Matters | Recommended Correction |
 |---|---|---|
-| Desktop dashboard is simply reduced in size | Text becomes hard to read and controls become hard to select. | Adjust the layout, text, and controls for smaller screens. |
+| Desktop dashboard is simply reduced in size | Text becomes hard to read, and controls become hard to select. | Adjust the layout, text, and controls for smaller screens. |
 | Touch controls are small or crowded | Users may activate the wrong control. | Increase target sizes and check spacing against the applicable guidance. |
 | Text requires horizontal scrolling | Users may miss content or struggle to follow it. | Wrap text and use a responsive layout. |
 | Details appear only on hover | Touchscreen users may not be able to reveal them. | Provide tap access and keep essential information visible. |
-| Too many objects or large data loads | The main message is harder to find and loading may be slow. | Prioritize content and optimize images, data, marks, and calculations. |
+| Too many objects or large data loads | The main message is harder to find, and loading may be slow. | Prioritize content and optimize images, data, marks, and calculations. |
 | More content is hidden below the screen | Users may not realize they can scroll. | Provide a visible cue that content continues. |
 | A target size in pixels is treated as a fixed size in millimeters | The physical size can vary across devices and viewing conditions. | Use the units specified by the applicable standard and test on real devices. |
 
@@ -122,3 +122,11 @@ Access the full visualization: [Digital Equity Act Population Viewer](https://ww
 [^6]: [Understanding Success Criterion 1.4.3: Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html), Level AA.
 
 [^7]: [Tips for designing device-specific dashboards that make everyone happy](https://www.tableau.com/blog/tips-designing-device-specific-dashboards-make-everyone-happy-57548), August 15, 2016.
+ 
+## Related Pages
+ 
+* [Interactive Chart](interactivechart.html): dashboard and interactive behavior that often needs a mobile layout.
+* [508 Compliance](508.html): accessibility requirements that also apply on phones and tablets.
+* [Color](color.html): contrast guidance, including text at 4.5:1 and meaningful non-text contrast.
+* [Typography](typography.html): readable type sizes when the layout reflows to a small screen.
+* [Notes](note.html): notes need to remain readable when hover is unreliable on touch devices.
