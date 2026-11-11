@@ -64,6 +64,7 @@ In addition to the guidance provided in this section, relevant guidance can also
 * If using color for flows, alternate colors to keep high contrast, or outline flows so readers can follow each one from one side to the other.
 * When flows of the same color cross, use a darker color for the intersection.
 * Label nodes directly with text so color is not the only way to identify them.
+
 ## Accessibility
  
 * Write alt text that states the main flow or transfer takeaway (what moves from where to where, and the scale), not only that the image is a Sankey diagram.
