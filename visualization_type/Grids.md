@@ -24,7 +24,7 @@ In addition to the guidance provided in this section, relevant guidance can also
 ## Essential Requirements
 
 * Use a subdued color, such as gray, that keeps gridlines visible without cluttering the visualization.
-* Render gridlines behind data marks so they do not obscure points, bars, or lines. Gridlines may cross the positions of data marks; the concern is visual layering and readability, not preventing every intersection.
+* Render gridlines behind data marks so they do not obscure points, bars, or lines. Gridlines may cross data marks; the concern is visual layering and readability, not preventing every intersection.
 * Keep gridlines from interfering with labels and other text.
 
 ## Recommended Practices
@@ -42,6 +42,15 @@ In addition to the guidance provided in this section, relevant guidance can also
 * Avoid unnecessary gridlines when direct labels already make values clear.
 * Do not add graticules to a thematic map unless they help readers interpret it.
 
+## Accessibility
+ 
+* Keep axis and tick labels at a contrast of at least 4.5:1 against the background, and make sure gridlines do not cross through text in a way that reduces that contrast.
+* If readers must use the gridlines to read values, keep those lines at least 3:1 against the background. Even then, draw them thinner or lighter than the data so the series stays primary.
+* Do not rely on gridlines alone when precise values matter. Use direct labels or provide a data table.
+* On maps, add graticules only when they help interpretation, and keep their labels readable at the intended size.
+* For full requirements, see the [508 Compliance](508.html), [Color](color.html), and [Axes](axes.html) pages. Meeting these bullets does not by itself mean a visualization is 508 compliant.
+ 
+
 ## Census Data Examples
 
 ***Example 1:*** Driving Alone is Still Popular
@@ -56,7 +65,7 @@ This chart could be improved:
 
 * Each bar is directly labeled, so the gridlines may be unnecessary. Consider removing them for a cleaner presentation.
 
-***Example 2:*** Median Sales Price of New Single Family Homes Sold
+***Example 2:*** Median Sales Price of New Single-Family Homes Sold
 
 ![Line chart showing median sales prices of new single-family homes sold from 2019 to 2023 for the United States and four regions, in thousands of dollars. Light gray horizontal gridlines help readers estimate prices. All series end higher than in 2019, with the Northeast highest in 2023. Region names directly label the lines at the right.]({{ '/component/assets/grid2.png' | relative_url }})
 
@@ -90,3 +99,12 @@ This example demonstrates the following practices well:
 - [ ] Chart-specific limitations and caveats are explained.
 - [ ] Code examples have been executed and verified.
 - [ ] The visualization has undergone the appropriate review.
+ 
+## Related Pages
+ 
+* [Axes](axes.html): gridlines support the scale; axis titles, ticks, and baselines are covered there.
+* [Line Graphs](linegraph.html): a common use of light gridlines behind a series.
+* [Map Layout](maplayout.html): related guidance when considering graticules on a thematic map.
+* [Color](color.html): keep gridlines visible enough to use without overpowering the data.
+* [Typography](typography.html): keep labels readable so gridlines do not cut through or crowd text.
+* [508 Compliance](508.html): contrast and text alternatives that also apply to labeled axes and gridlines.
