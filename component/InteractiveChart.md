@@ -9,7 +9,7 @@ description: "Guidance for building interactive Census Bureau charts that are cl
 
 ## Purpose and Overview
 
-Interactive data visualizations have become an essential method of delivering information to the public. They allow simplified designs and responsive layouts while highlighting essential information and reducing clutter. There are many considerations when creating a new interactive visualization. Review the "Guidelines and Best Practices for Interactive Data Visualizations" located here [interactive data visualizations guidelines (Jan 2023)](https://uscensus.sharepoint.com/:b:/r/sites/adcom/data-visualization-hub/Documents/Guidelines%20%26%20Best%20Practices/interactive%20data%20visualizations%20guidelines%20(Jan%202023).pdf?csf=1&web=1&e=TuqZfW) for more information. The following recommendations are gathered from that document, and we refer the reader to the original document for further examples and clarifications.
+Interactive data visualizations have become an essential way to deliver information to the public. They allow simplified designs and responsive layouts while highlighting essential information and reducing clutter. There are many considerations when creating a new interactive visualization. Review the "Guidelines and Best Practices for Interactive Data Visualizations" located here [interactive data visualizations guidelines (Jan 2023)](https://uscensus.sharepoint.com/:b:/r/sites/adcom/data-visualization-hub/Documents/Guidelines%20%26%20Best%20Practices/interactive%20data%20visualizations%20guidelines%20(Jan%202023).pdf?csf=1&web=1&e=TuqZfW) for more information. The following recommendations come from that document, and we refer readers to the original document for further examples and clarification.
 
 ## When This Guidance Applies
 
@@ -21,7 +21,7 @@ In addition to the guidance provided in this section, relevant guidance can also
 
 * Where applicable, interactive information products shall have the Census Bureau DMS and DRB numbers included on the data visualization the same way that a source statement would be included.
 * Visualization creators must get approval for the visualization through the program area. This includes Division Chief or Assistant Division Chief, subject matter experts (SMEs), and statistical SMEs. For data from other agencies, agency approvals are needed, including their preferred referencing.
-* When applicable, measures of uncertainty (such as margins of error or coefficients of variation) must be available through a popup or a link to another location, and the type of error term must be named.
+* When applicable, measures of uncertainty (such as margins of error or coefficients of variation) must be available through a pop-up or a link to another location, and the type of error term must be named.
 * Every interactive chart must also offer a data table or link to the published tables, so users who cannot use the interactive features can still get the information.
 
 ## Recommended Practices
@@ -29,9 +29,9 @@ In addition to the guidance provided in this section, relevant guidance can also
 * Use the most recently released vintage of the data unless showing trends or a historical overview.
 * Ensure the visualization works for mobile users. See the Mobile Design section.
 * Ensure the maximum width matches the census.gov template and the expected user's device.
-* Use 1000 pixels width to fit on a normal visualization page with no horizontal scrollbar, or 770 pixels width to fit on a blog post or an America Counts story. There is no restriction on height, but 600 pixels is recommended so users can see the entire visualization on a desktop or laptop without scrolling.
+* Use a 1000-pixel width to fit on a normal visualization page with no horizontal scrollbar, or a 770-pixel width to fit on a blog post or an America Counts story. There is no restriction on height, but 600 pixels is recommended so users can see the entire visualization on a desktop or laptop without scrolling.
 * Use fixed dashboard sizing instead of automatic sizing.
-* To share the data behind the visualization, link to existing tables already released on data.census.gov or to the data on the Census program area site. Creators who still want a download option must submit examples of the downloaded tables for review, to make sure the data and naming follow Census Bureau standards, best practices, and disclosure rules.
+* To share the data behind the visualization, link to existing tables already released on data.census.gov or to the data on the Census program area site. Creators who still want a download option must submit examples of the downloaded tables for review to make sure the data and naming follow Census Bureau standards, best practices, and disclosure rules.
 * Use short, clear titles with keywords that help search engines, because interactive visualizations are usually standalone products.
 * Use plain language, define all acronyms, and avoid jargon and bureaucratic language.
 * Hyperlink every full web address shown in the visualization.
@@ -44,7 +44,7 @@ In addition to the guidance provided in this section, relevant guidance can also
 * Do not use automatic dashboard sizing, which can break the layout on different screens.
 * Do not show margins of error without saying what they are, such as a 90 percent margin of error.
 * Do not offer data downloads that have not been reviewed for Census Bureau standards and disclosure rules.
-* Do not hide essential information, such as the source, notes, or error terms, only in hover popups.
+* Do not hide essential information, such as the source, notes, or error terms, only in hover pop-ups.
 * Do not add interactive features that make the chart harder to use without adding information.
 
 ## Census Data Examples
@@ -56,18 +56,18 @@ In addition to the guidance provided in this section, relevant guidance can also
 This chart is a good example of the following:
 
 * The user has a clear indicator at the top that other detailed geography can be displayed by making a selection and clicking a button.
-* On hover, estimates and margins of error are displayed along with a link to the detailed data tables the visualization comes from. The data aren't downloadable directly from the visualization but are linked to the previously released tables.
+* On hover, estimates and margins of error are displayed along with a link to the detailed data tables the visualization comes from. The data aren't downloadable directly from the visualization; they link to the previously released tables.
 * This visualization displays previously released estimates, so the DRB and DMS numbers are not necessary, but a full link to the data source is provided.
 
 This chart could be improved:
 
-* The margin of error is shown for the U.S. total, but users must hover to see county margins of error, and the map does not say they are 90 percent margins of error.
+* The margin of error is shown for the U.S. total, but users must hover to see county margins of error, and the Map does not say they are 90 percent margins of error.
 
 ***Example 2:*** Health Insurance Coverage and Type by State
 
 [![Interactive dashboard titled Health Insurance Coverage and Type by State comparing 2019 and 2023 for all ages in the United States. Paired bars show the percentage with each coverage type, such as any coverage at 90.8 percent in 2019 and 92.1 percent in 2023. A second panel shows percentage point differences, with asterisks marking statistically significant changes. Tabs at the top switch years and comparisons, and drop-down menus filter by state and age group.](assets/InteractiveChart2.png)](https://public.tableau.com/views/HealthInsuranceCoverageandTypebyState/TypebyAgeandStatebarsCO?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-The bar charts in this example can be shown for different age groups and geographies using the selections at the top of the visualization.
+The bar charts in this example can show different age groups and geographies using the selections at the top of the visualization.
 
 This chart is a good example of the following:
 
@@ -77,7 +77,7 @@ This chart is a good example of the following:
 * On hover, margins of error are displayed, and the notes button defines the term margin of error.
 
   
-***Example 3:*** US Marriage and Divorce Rates for Women by State
+***Example 3:*** U.S. Marriage and Divorce Rates for Women by State
 
 [![Introduction page of the U.S. Marriage and Divorce Rates for Women by State dashboard, with definitions, a worked example, and a bar chart comparing national marriage and divorce rates in 2011 and 2021.]({{ '/component/assets/InteractiveChart3.png' | relative_url }})](https://public.tableau.com/app/profile/us.census.bureau/viz/MarriageandDivorceRatesbyState2011and2021/IntroDASH)
 
@@ -109,3 +109,11 @@ This chart is a good example of the following:
 - [ ] Chart-specific limitations and caveats are explained.
 - [ ] Code examples have been executed and verified.
 - [ ] The visualization has undergone the appropriate review.
+ 
+## Related Pages
+ 
+* [Mobile Design for Interactive Visualizations](mobiledesign.html): layout, touch targets, and scaling for interactive views on small screens.
+* [Notes](note.html): do not hide essential caveats only in a hover popup.
+* [Uncertainty](uncertainty.html): how to show margins of error in a way readers can still interpret.
+* [Color](color.html): contrast for marks, highlights, and controls.
+* [508 Compliance](508.html): keyboard access, text alternatives, and other accessibility requirements for interactive displays.

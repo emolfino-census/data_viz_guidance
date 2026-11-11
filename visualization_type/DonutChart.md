@@ -12,22 +12,22 @@ description: "A donut chart shows parts of a whole as arcs around an empty cente
 
 ## Purpose and Overview
 
-The donut chart is a variant of the pie chart, with a hole in its center, and it displays categories as arcs rather than slices. Both visualize part-to-whole relationships where the length of each arc is proportional to the whole. Each arc of a donut chart represents a different category of the data.
+The donut chart is a variant of the pie chart, with a hole in its center, and it displays categories as arcs rather than slices. Both visualize part-to-whole relationships, where each arc's length is proportional to the whole. Each arc in a donut chart represents a different data category.
 
-Compared to pie charts, donut charts take up less space and the empty space in the middle can be used for labels or other data. This makes it ideal for dashboards and other visualizations with limited space. Pie charts require the viewer to assess the area of each wedge while donut charts require the viewer to assess the length of the arc because the arcs are all the same width. Humans are better at perceiving differences in lengths than differences in volume.
+Compared to pie charts, donut charts take up less space, and the empty middle can hold labels or other data. This makes it ideal for dashboards and other visualizations with limited space. Pie charts require viewers to assess the area of each wedge, while donut charts require them to assess arc length because the arcs are all the same width. Humans perceive differences in length better than differences in volume.
 
 ## When to Use
 
 Use a donut chart when:
 
-* You want to show how parts make up one whole, such as the share of workers using each way of getting to work.
+* To show how parts make up one whole, such as the share of workers using each way of getting to work.
 * The categories do not overlap and add up to 100%.
 * There are only a few categories, ideally no more than 6.
 * Space is limited, such as on a dashboard, and the center can hold a label or total.
 
 ## When to Use an Alternative
 
-* Do not use donut charts when negative values are shown alongside of positive values as they are difficult to interpret.
+* Do not use donut charts when negative values are shown alongside positive values, as they are difficult to interpret.
 * Do not use donut charts to show change across time. Alternatives include a line chart or stacked area chart.
 * Do not use nested donut charts. This draws the eye to compare the smallest part of the outer arc to the largest part of the inner arc, a false comparison.
 * Avoid donut charts when readers need exact comparisons between similar values. A bar chart or table is easier to read.
@@ -54,14 +54,22 @@ Use a donut chart when:
 In addition to the guidance provided in this section, relevant guidance can also be found in the Agency Logo, Axes, Colors, Grids, Legends, Source, Titles, Typography sections.
 
 * Include a legend or label slices directly.
-* Never use three-dimensional (3D) graphics as they distort the visual calculation of volume.
-* Use contrasting color to ensure the wedges stand out. Consider using heavy outlining to make each wedge stand out.
+* Never use three-dimensional (3D) graphics, as they distort the visual calculation of volume.
+* Use contrasting colors to ensure the wedges stand out. Consider using heavy outlining to make each wedge stand out.
 * Limit the number of categories/arcs to no more than 6.
-* Comparisons of more than 2 donut charts is ok if only two categories are shown. Only use two or more donut charts to compare against each other when there are 3 or fewer categories in each donut chart. The human eye is bad when comparing multiple lengths at the same time. Instead, an alternative is stacked bar charts.
+* Comparisons of more than 2 donut charts is ok if only two categories are shown. Use two or more donut charts to compare against each other only when each donut chart has 3 or fewer categories. The human eye is poor at comparing multiple lengths at once. Instead, use stacked bar charts.
 * Don't include large gaps between each slice, such as in an exploded pie chart. This distorts the perceived sizes of the pie slices.
-* Do not nest donut charts within each other. In the example below, your eyes assess the size of the arcs and determine that one is bigger than the other. Your brain must then dismiss what your eyes saw to process that these are the same, they are both 9%.
+* Do not nest donut charts within each other. In the example below, the eyes assess the arc sizes and determine that one is bigger than the other. The brain must then dismiss what the eyes saw and process that they are the same: both are 9%.
 
 ![Nested donut chart from the 2023 Deloitte Digital Citizen Survey on change in use of government digital services. The inner ring, since the beginning of the pandemic, shows 55 percent increased, 36 percent stayed the same, and 9 percent decreased. The outer ring, in the new normal, shows 57 percent increased, 34 percent stayed the same, and 9 percent decreased. The two 9 percent arcs are highlighted because they look like different sizes even though they are equal.](assets/Donutchart1.png)
+
+## Accessibility
+ 
+* Write alt text that states the main part-to-whole takeaway, including the center total if that number is part of the message, rather than only naming the chart type.
+* Provide the values in a data table or an equivalent text format. This is especially important when two donuts are shown side by side, because comparing arc lengths is difficult.
+* Label each arc with the category and value (or percent). Don't rely on color alone to identify slices, and don't nest rings that make equal shares look like different sizes.
+* Keep text, including any label in the hole, at a contrast of at least 4.5:1 against its background. Keep arc fills or outlines at least 3:1 against the background and against neighboring arcs.
+* For full requirements, see the [508 Compliance](508.html) and [Color](color.html) pages. Meeting these bullets does not by itself mean a chart is 508 compliant.
 
 ## Census Data Example
 
@@ -69,7 +77,7 @@ In addition to the guidance provided in this section, relevant guidance can also
 
 ![Donut chart of percent shares of U.S. beef export markets in 2022. Total beef exports were 3.54 billion pounds. Japan 23 percent, South Korea 23 percent, China 18 percent, Mexico 8 percent, Canada 8 percent, and others 21 percent. Shares add to 101 percent because of rounding.](assets/Donutchart2.png)
 
-Original chart can be found at: https://www.ers.usda.gov/data-products/chart-gallery/gallery/chart-detail/?chartId=107281
+The original chart can be found at: https://www.ers.usda.gov/data-products/chart-gallery/gallery/chart-detail/?chartId=107281
 
 This chart demonstrates the following well:
 
@@ -80,7 +88,7 @@ This chart demonstrates the following well:
 
 ![Two donut charts of 2017 state and local government spending by category: the U.S. total of $3.3 trillion and Alabama's $45.0 billion. Arcs are colored by category, such as education, health and welfare, and transportation, with a color legend below.](assets/Donutchart3.png)
 
-Full dashboard can be found at: https://www.census.gov/library/visualizations/interactive/state-local-snapshot.html
+The full dashboard can be found at: https://www.census.gov/library/visualizations/interactive/state-local-snapshot.html
 
 This example demonstrates the following well:
 
@@ -88,7 +96,7 @@ This example demonstrates the following well:
 
 This example could use the following improvements:
 
-* Two donut charts are shown side by side with more than 2 categories being represented in each. It is difficult for the reader to understand the differences between the two charts and perhaps these values would better be displayed in bar charts or a table with the values clearly labeled for each category.
+* Two donut charts are shown side by side with more than 2 categories being represented in each. It is difficult for the reader to understand the differences between the two charts, and these values may be better displayed in bar charts or a table with values clearly labeled for each category.
 
 ## Developer Implementation
 
@@ -115,3 +123,11 @@ A reproducible Python example using U.S. Census Bureau data will be added in a l
 - [ ] Chart-specific limitations and caveats are explained.
 - [ ] Code examples have been executed and verified.
 - [ ] The visualization has undergone the appropriate review.
+ 
+## Related Pages
+ 
+* [Pie Chart](piechart.html): the same part-to-whole method without a center hole, including when to avoid comparing many pies.
+* [Stacked Bar Chart](stackedbarchart.html): a clearer way to compare composition across several groups.
+* [Bar Chart](barchart.html): a better choice when readers need to compare category sizes precisely.
+* [Color](color.html): contrast and color-vision guidance for arcs and center labels.
+* [508 Compliance](508.html): general accessibility requirements for charts and text.

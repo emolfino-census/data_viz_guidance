@@ -28,7 +28,7 @@ Use a treemap when:
 
 ## When to Use an Alternative
 
-* Treemaps are not recommended for data types that have a natural order such as age ranges, educational outcomes, chronological data, and regional areas. Presenting these variables in a treemap makes interpretation much more cognitively taxing than if the data appeared in their natural order.
+* Treemaps are not recommended for data types that have a natural order such as age ranges, educational outcomes, chronological data, and regional areas. Presenting these variables in a treemap is much more cognitively taxing than presenting them in their natural order.
 * Avoid treemaps when readers need to compare exact values. Rectangle areas are harder to compare than bar lengths.
 * Avoid treemaps when values can be negative, because a rectangle cannot have a negative size.
 
@@ -59,6 +59,15 @@ In addition to the guidance provided in this section, relevant guidance can also
 * Keep a straight edge on each side of the diagram.
 * Don't include patterns or images in each rectangle.
 * Adding interactivity allows users to drill into each box to see its components. Interactive versions should still provide a data table.
+
+## Accessibility
+ 
+* Write alt text that states the main hierarchy or key takeaway, not only that the image is a treemap. Mention the dataset, geography, and reference period when they are not already in nearby text.
+* Provide a data table of the rectangle values. Small rectangles often cannot hold readable labels, so the table is the reliable alternative.
+* Label larger rectangles directly when there is room. Color may show a second measure, but it should not be the only way to identify a category or read a value.
+* Keep any text inside a rectangle at a contrast of at least 4.5:1 against that rectangle's fill. Keep rectangle borders or fill differences at least 3:1 so the areas remain distinct.
+* If the Treemap is interactive and lets readers drill into a box, still provide the underlying data in a table. For full requirements, see the [508 Compliance](508.html) and [Color](color.html) pages. Meeting these bullets does not by itself mean a chart is 508 compliant.
+ 
 
 ## Census Data Example
 
@@ -100,3 +109,11 @@ A reproducible Python example using U.S. Census Bureau data will be added in a l
 - [ ] Code examples have been executed and verified.
 - [ ] The visualization has undergone the appropriate review.
 
+ 
+## Related Pages
+ 
+* [Pie Chart](piechart.html): a simpler part-to-whole display when there are only a few categories and no hierarchy to show.
+* [Bar Chart](barchart.html): often easier to read when categories need a clear ranked comparison.
+* [Interactive Chart](interactivechart.html): guidance if the Treemap lets readers drill into a rectangle.
+* [Color](color.html): how to use color as a second measure without relying on it alone.
+* [508 Compliance](508.html): general accessibility requirements, including text alternatives for small unlabeled rectangles.

@@ -11,7 +11,7 @@ description: "How to use gridlines and map graticules to support data reading wi
 
 Grids provide reference lines that help readers understand values and compare data points. They can improve precision in large charts and make subtle differences easier to see.
 
-In line graphs, bar charts, and similar visualizations, gridlines help readers trace data points to values on the x- or y-axis. Gridlines are optional; consider using them when data points are not directly labeled.
+In line graphs, bar charts, and similar visualizations, gridlines help readers trace data points to values on the x- or y-axis. Gridlines are optional; use them when data points aren't directly labeled.
 
 On maps, reference grids can help readers locate places beyond the geographic boundaries shown, such as county or state lines. Graticules show latitude and longitude. They can provide context on reference maps but are not always needed on thematic maps using Census Bureau data.
 
@@ -63,7 +63,7 @@ This example demonstrates the following practice well:
 
 This chart could be improved:
 
-* Each bar is directly labeled, so the gridlines may be unnecessary. Consider removing them for a cleaner presentation.
+* Each bar is directly labeled so that the gridlines may be unnecessary. Consider removing them for a cleaner presentation.
 
 ***Example 2:*** Median Sales Price of New Single-Family Homes Sold
 
@@ -86,7 +86,7 @@ This example demonstrates the following practices well:
 | Gridlines interfere with labels | Text becomes harder to read. | Adjust the styling or layout to keep labels clear. |
 | Gridlines repeat information already supplied by direct labels | Extra lines can add clutter without helping interpretation. | Consider removing unnecessary gridlines. |
 | Graticules add no useful location information | They can distract from the map's main message. | Omit them unless they help readers interpret location. |
-| “Behind the data” is interpreted as “never crosses a data position” | Useful reference lines may be removed unnecessarily. | Allow intersections while keeping gridlines behind and visually subordinate to the data. |
+| "Behind the data" is interpreted as "never crosses a data position" | Useful reference lines may be removed unnecessarily. | Allow intersections while keeping gridlines behind and visually subordinate to the data. |
 
 ## Publication Quality Checklist
 

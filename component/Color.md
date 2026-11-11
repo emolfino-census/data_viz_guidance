@@ -9,7 +9,7 @@ description: "How to choose accessible Census Bureau colors for sequential, qual
 
 ## Purpose and Overview
 
-Careful use of color is needed within data visualizations to clearly convey the information being presented. Color within any part of the visualization needs to be considered, including but not limited to color used in:
+Use color carefully in data visualizations to clearly convey the information presented. Color within any part of the visualization needs to be considered, including but not limited to color used in:
 
 * Data points
 * Axis labels
@@ -19,7 +19,7 @@ Careful use of color is needed within data visualizations to clearly convey the 
 * Legend
 * Text
 
-Section 508 considerations are mentioned here, but for more information see the [508 Compliance page](508.html).
+Section 508 considerations are mentioned here, but for more information, see the [508 Compliance page](508.html).
 
 The colors featured in this section follow the U.S. Census Bureau's brand guidelines and can be customized to fit your needs. Text placed on these colors must meet a contrast ratio of at least 4.5:1, as required by the latest Web Content Accessibility Guidelines (WCAG) 2.1 AA.
 
@@ -27,11 +27,11 @@ The colors featured in this section follow the U.S. Census Bureau's brand guidel
 
 Apply this guidance to every chart, map, table, and dashboard that uses color, including text, backgrounds, and legends.
 
-In addition to the guidance provided in this section, relevant guidance can also be found in the 508 Compliance, Legends, Interactive Chart, and Typography sections.
+In addition to this section, relevant guidance is in the 508 Compliance, Legends, Interactive Chart, and Typography sections.
 
 ## Census Color Palettes
 
-This palette uses a mix of warm and cool tones. Its simple design helps users tell categories and ordered data apart more easily.
+This palette mixes warm and cool tones. Its simple design helps users tell categories and ordered data apart more easily.
 
 We encourage everyone using these standards to reference their own agency's brand guidelines and the Text Accessibility guidance below for 508-compliant colors.
 
@@ -41,7 +41,7 @@ We encourage everyone using these standards to reference their own agency's bran
 
 ### Sequential Colors
 
-Each of the featured Census colors can be used to create a sequential color palette. Use this type of palette when data values can be ordered from low to high. To show that the data are sequential (also known as continuous), all values should be shades of the same color, with lower values lighter and higher values darker.
+Each featured Census color can be used to create a sequential color palette. Use this type of palette when data values can be ordered from low to high. To show that the data are sequential (also known as continuous), use shades of the same color, with lower values lighter and higher values darker.
 
 ![Teal sequential palette of seven shades, from darkest teal (hex 00282E) through teal (hex 0095A8) to lightest teal (hex D4F4F8).](assets/Color02.png)
 
@@ -68,7 +68,7 @@ A highlight color can be used with a qualitative palette to draw attention to on
 
 ### Diverging Colors
 
-Like sequential colors, diverging colors are used when data values can be ordered from low to high. The difference is that diverging colors draw attention to an important break point in the data, such as zero or the national average. A different color is used on each end of the scale, and the break point, or middle value, is a neutral color. Values furthest from the break point are darker, and values closer to it are lighter.
+Like sequential colors, diverging colors are used when data values can be ordered from low to high. The difference is that diverging colors draw attention to an important break point in the data, such as zero or the national average. Each end of the scale uses a different color, and the break point, or middle value, is a neutral color. Values furthest from the break point are darker, and values closer to it are lighter.
 
 ***Example Palette***
 
@@ -76,7 +76,7 @@ Like sequential colors, diverging colors are used when data values can be ordere
 
 ### No Data Colors
 
-Sometimes elements with no data must still be colored, such as areas on a map. In these cases, use a neutral color for a "No Data" class, define it in the legend, and describe it in the alt text. For diverging or sequential color schemes, use a dark gray that won't be mistaken for a color in the range of valid values.
+Sometimes elements with no data still need color, such as areas on a map. In these cases, use a neutral color for a "No Data" class, define it in the legend, and describe it in the alt text. For diverging or sequential color schemes, use a dark gray that won't be mistaken for a color in the range of valid values.
 
 ## Essential Requirements
 
@@ -89,7 +89,7 @@ Sometimes elements with no data must still be colored, such as areas on a map. I
 
 ### Text Accessibility
 
-Colors used for text must also meet the 4.5:1 contrast ratio. The examples below show color combinations that meet Section 508 foreground and background contrast requirements. To keep text accessible, use only these combinations. If you customize beyond this palette, test every combination with the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/).
+Text colors must also meet the 4.5:1 contrast ratio. The examples below show color combinations that meet Section 508 foreground and background contrast requirements. To keep text accessible, use only these combinations. If you customize beyond this palette, test every combination with the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/).
 
 ## Recommended Practices
 
@@ -109,7 +109,7 @@ Colors used for text must also meet the 4.5:1 contrast ratio. The examples below
 ## Practices to Avoid
 
 * Don't use a sequential or diverging scheme if the data don't have that kind of order.
-* Don't use too many colors. Excess color distracts from the purpose of the visualization.
+* Don't use too many colors. Too many colors distract from the purpose of the visualization.
 * Don't use colors that clash with what you are showing, because it makes the chart harder to read. For example, coloring Asian as blue, Hispanic or Latino as black, Black or African American as white, and White as gray makes this chart harder to interpret. Use the recommended qualitative palette instead.
 
   ![Not recommended example from the 2023 Deloitte Digital Citizen Survey: three radial bar charts of challenges accessing digital government services by race, with Asian shown in blue, Hispanic or Latino in black, Black or African American in white, and White or Caucasian in gray. The white bars almost disappear against the light background.](assets/Color09.png)
@@ -151,3 +151,10 @@ Colors used for text must also meet the 4.5:1 contrast ratio. The examples below
 - [ ] Chart-specific limitations and caveats are explained.
 - [ ] Code examples have been executed and verified.
 - [ ] The visualization has undergone the appropriate review.
+ 
+## Related Pages
+ 
+* [508 Compliance](508.html): general accessibility requirements, including that color cannot be the only way to communicate meaning.
+* [Legends](legend.html): how to identify colors and categories in a key when direct labels are not used.
+* [Typography](typography.html): contrast and size for colored text and labels.
+* [Interactive Chart](interactivechart.html): hover highlights and other color changes still need a non-color cue.
