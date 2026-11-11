@@ -20,7 +20,7 @@ In addition to the guidance provided in this section, relevant guidance can also
 ## Essential Requirements
 
 * Where applicable, interactive information products shall have the Census Bureau DMS and DRB numbers included on the data visualization the same way that a source statement would be included.
-* Visualization creators must get approval for the visualization through the program area. This includes Division Chief or Assistant Division Chief, subject matter experts (SMEs), and statistical SMEs. For data from other agencies, you need agency approvals, including their preferred referencing.
+* Visualization creators must get approval for the visualization through the program area. This includes Division Chief or Assistant Division Chief, subject matter experts (SMEs), and statistical SMEs. For data from other agencies, agency approvals are needed, including their preferred referencing.
 * When applicable, measures of uncertainty (such as margins of error or coefficients of variation) must be available through a pop-up or a link to another location, and the type of error term must be named.
 * Every interactive chart must also offer a data table or link to the published tables, so users who cannot use the interactive features can still get the information.
 
