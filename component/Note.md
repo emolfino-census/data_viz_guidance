@@ -25,11 +25,11 @@ In some publications, captions provide a concise summary of the visualization an
 
 Apply this guidance when a static or interactive visualization needs definitions, context, limitations, or other explanations beyond its title, axes, and legend.
 
-In addition to the guidance provided in this section, relevant guidance can also be found in the 508 Compliance, Interactive Chart, Legends, and Titles sections.
+In addition to this section, relevant guidance is  in the 508 Compliance, Interactive Chart, Legends, and Titles sections.
 
 ## Essential Requirements
 
-* In a static visualization, place notes at the bottom, either within the frame or adjacent to the graphic. Only source statements should appear below the notes.
+* In a static visualization, place notes at the bottom, either within the frame or adjacent to the graphic. Include only source statements below the notes.
 * Place captions outside the visualization frame and adjacent to the visualization.
 * In an interactive visualization, place notes at the bottom of the graphic or make them available through a clearly identified information button or pop-up. Use an accessible button with a descriptive name that can be operated with a keyboard; do not make notes available only on hover.
 
@@ -98,3 +98,11 @@ The note at the bottom provides additional context and includes DRB approval inf
 - [ ] Chart-specific limitations and caveats are explained.
 - [ ] Code examples have been executed and verified.
 - [ ] The visualization has undergone the appropriate review.
+ 
+## Related Pages
+ 
+* [Sources](source.html): source lines and notes often sit together under a chart.
+* [Titles](title.html): the title, subtitle, and notes should work as one information hierarchy.
+* [Interactive Chart](interactivechart.html): do not place essential notes only in a hover popup.
+* [Mobile Design for Interactive Visualizations](mobiledesign.html): notes need to remain readable when the layout reflows.
+* [508 Compliance](508.html): text alternatives and visibility requirements that apply to notes as well as to the chart.
