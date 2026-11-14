@@ -82,6 +82,8 @@ In addition to the guidance provided in this section, relevant guidance can also
 
 Full visualization can be found at [Post-Secondary Employment Outcomes Explorer](https://lehd.ces.census.gov/applications/pseo/?type=flows&specificity=2&state=51&institution=00374500&degreelevel=07&gradcohort=0000-5&filter=1&display=share&program=45,14,27&destination=none)
 
+Note: The screenshot reflects an earlier PSEO data release (2021–2023). In the current release (2026Q2), the same selection shows Engineering 65 percent, Social Sciences 18 percent, and Mathematics and Statistics 17 percent, with 53 percent Employed and 47 percent No or very low earnings observed, so the live explorer will not match the screenshot.
+
 This chart is a good example of the following:
 
 * The chart is not cluttered, with only two flows crossing over the other flows.
