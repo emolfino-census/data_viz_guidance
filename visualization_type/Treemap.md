@@ -71,9 +71,9 @@ In addition to the guidance provided in this section, relevant guidance can also
 
 ## Census Data Example
 
-***Example 1:*** Small Area Income and Poverty Estimates, 2022.
+***Example 1:*** Small Area Income and Poverty Estimates, 2020.
 
-![Treemap from the Census Bureau's Small Area Income and Poverty Estimates (2022) showing Supplemental Nutrition Assistance Program (SNAP) participation by county in the Midwest. Each rectangle is a county, grouped by state, such as Ohio, Illinois, Michigan, and Indiana. Rectangle size shows the number of SNAP participants, and shades from light to dark green and blue show the participation rate, from less than 10 percent to more than 40 percent. Large counties such as Cook County, Illinois, and Wayne County, Michigan, have the biggest rectangles.](assets/Treemap.png)
+![Treemap from the Census Bureau's Small Area Income and Poverty Estimates (2020) showing Supplemental Nutrition Assistance Program (SNAP) participation by county in the Midwest. Each rectangle is a county, grouped by state, such as Ohio, Illinois, Michigan, and Indiana. Rectangle size shows the number of SNAP participants, and shades from light to dark green and blue show the participation rate, from less than 10 percent to more than 40 percent. Large counties such as Cook County, Illinois, and Wayne County, Michigan, have the biggest rectangles.](assets/Treemap.png)
 
 The full visualization can be found at [https://www.census.gov/data-tools/demo/saipe_treemap/saipe_snap_treemap.html](https://www.census.gov/data-tools/demo/saipe_treemap/saipe_snap_treemap.html)
 
