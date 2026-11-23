@@ -159,20 +159,20 @@ The figure below illustrates how the same data can produce visually different li
 
 ## Publication Quality Checklist
 
-- [ ] The analytical purpose of the comparison is clear.
-- [ ] The datasets, categories, measures, or time periods have a meaningful relationship.
-- [ ] Directly comparable charts use consistent scales and axes.
-- [ ] Comparable visualizations use consistent aspect ratios where appropriate.
-- [ ] Colors, symbols, line styles, and other encodings are used consistently.
-- [ ] Category ordering is consistent across related views where appropriate.
-- [ ] Titles, labels, units, and legends use consistent terminology.
-- [ ] Important differences or similarities are identifiable without unnecessary visual complexity.
-- [ ] Statistical significance is communicated where appropriate.
-- [ ] Overlaid views do not contain excessive series or clutter.
-- [ ] Animation is not being used when precise static comparison would be more effective.
-- [ ] Color is not the only means of communicating differences.
-- [ ] Accessible alternatives are available for interactive or animated content where applicable.
-- [ ] The comparison does not create a misleading impression through inconsistent scales, dimensions, or visual encodings.
+- The analytical purpose of the comparison is clear.
+- The datasets, categories, measures, or time periods have a meaningful relationship.
+- Directly comparable charts use consistent scales and axes.
+- Comparable visualizations use consistent aspect ratios where appropriate.
+- Colors, symbols, line styles, and other encodings are used consistently.
+- Category ordering is consistent across related views where appropriate.
+- Titles, labels, units, and legends use consistent terminology.
+- Important differences or similarities are identifiable without unnecessary visual complexity.
+- Statistical significance is communicated where appropriate.
+- Overlaid views do not contain excessive series or clutter.
+- Animation is not being used when precise static comparison would be more effective.
+- Color is not the only means of communicating differences.
+- Accessible alternatives are available for interactive or animated content where applicable.
+- The comparison does not create a misleading impression through inconsistent scales, dimensions, or visual encodings.
 
 ## Examples
 

@@ -136,19 +136,19 @@ For additional standards, see [Color](color.html).
 
 ## Publication Quality Checklist
 
-- [ ] Gotham is used when available.
-- [ ] If Gotham is unavailable, an approved alternative font is used.
-- [ ] Text is at least 8 pt.
-- [ ] Font families are used consistently.
-- [ ] Multipage interactive visualizations use consistent typography across pages.
-- [ ] Titles, labels, annotations, and supporting text have a clear hierarchy.
-- [ ] Thin or light fonts that reduce readability are avoided.
-- [ ] Labels remain readable and do not interfere with visualization content.
-- [ ] Colored text is used only when it serves a clear communicative purpose.
-- [ ] Text has sufficient contrast against its background.
-- [ ] Color is not the only method used to communicate important information.
-- [ ] Typography remains readable at the intended publication and display size.
-- [ ] Relevant mobile and accessibility guidance has been considered.
+- Gotham is used when available.
+- If Gotham is unavailable, an approved alternative font is used.
+- Text is at least 8 pt.
+- Font families are used consistently.
+- Multipage interactive visualizations use consistent typography across pages.
+- Titles, labels, annotations, and supporting text have a clear hierarchy.
+- Thin or light fonts that reduce readability are avoided.
+- Labels remain readable and do not interfere with visualization content.
+- Colored text is used only when it serves a clear communicative purpose.
+- Text has sufficient contrast against its background.
+- Color is not the only method used to communicate important information.
+- Typography remains readable at the intended publication and display size.
+- Relevant mobile and accessibility guidance has been considered.
 
 ## Example
 

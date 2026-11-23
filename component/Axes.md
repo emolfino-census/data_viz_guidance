@@ -166,20 +166,20 @@ Too many tick marks or labels can create visual clutter and make values harder t
 
 ## Publication Quality Checklist
 
-- [ ] Each necessary axis is clearly identified.
-- [ ] Measurement units are included where relevant.
-- [ ] Axis terminology is consistent with the rest of the visualization.
-- [ ] Scales accurately represent the underlying data.
-- [ ] Directly comparable charts use consistent axes and scales for the same measure.
-- [ ] Bar charts include zero on the quantitative axis.
-- [ ] Any nonzero baseline used for another visualization type has a clear analytical justification.
-- [ ] Tick intervals are consistent for standard linear scales.
-- [ ] Tick labels are readable and not unnecessarily dense.
-- [ ] Axis labels do not duplicate other information unnecessarily.
-- [ ] Dual axes are avoided except for the documented limited applications.
-- [ ] Axis text and graphical elements have sufficient contrast.
-- [ ] Users can interpret the visualization without relying on color alone.
-- [ ] Accessible alternatives are provided when precise values are important.
+- Each necessary axis is clearly identified.
+- Measurement units are included where relevant.
+- Axis terminology is consistent with the rest of the visualization.
+- Scales accurately represent the underlying data.
+- Directly comparable charts use consistent axes and scales for the same measure.
+- Bar charts include zero on the quantitative axis.
+- Any nonzero baseline used for another visualization type has a clear analytical justification.
+- Tick intervals are consistent for standard linear scales.
+- Tick labels are readable and not unnecessarily dense.
+- Axis labels do not duplicate other information unnecessarily.
+- Dual axes are avoided except for the documented limited applications.
+- Axis text and graphical elements have sufficient contrast.
+- Users can interpret the visualization without relying on color alone.
+- Accessible alternatives are provided when precise values are important.
 
 ## Examples
 

@@ -124,19 +124,19 @@ When two different series must be compared, a common scale, separate aligned cha
 
 ## Publication Quality Checklist
 
-- [ ] Dual axes are necessary for one of the limited appropriate applications described in this guidance.
-- [ ] The chart is not using two independently adjustable scales for unrelated data series.
-- [ ] Both axes and measurement units are clearly labeled.
-- [ ] Tick marks and labels are consistent.
-- [ ] The relationship between the two scales is explicit.
-- [ ] Readers can clearly identify which data correspond to each scale.
-- [ ] A common scale has been considered.
-- [ ] Side-by-side charts or small multiples have been considered.
-- [ ] Percent change or another common analytical measure has been considered where appropriate.
-- [ ] A table has been considered when exact values would communicate the information more clearly.
-- [ ] Color is not the only method used to communicate meaning.
-- [ ] Relevant accessibility guidance has been followed.
-- [ ] The selected scales do not create a misleading visual relationship.
+- Dual axes are necessary for one of the limited appropriate applications described in this guidance.
+- The chart is not using two independently adjustable scales for unrelated data series.
+- Both axes and measurement units are clearly labeled.
+- Tick marks and labels are consistent.
+- The relationship between the two scales is explicit.
+- Readers can clearly identify which data correspond to each scale.
+- A common scale has been considered.
+- Side-by-side charts or small multiples have been considered.
+- Percent change or another common analytical measure has been considered where appropriate.
+- A table has been considered when exact values would communicate the information more clearly.
+- Color is not the only method used to communicate meaning.
+- Relevant accessibility guidance has been followed.
+- The selected scales do not create a misleading visual relationship.
 
 ## Examples
 
